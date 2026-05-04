@@ -1,0 +1,1843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme 1: Sky Blue — Days Out in Summer Mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       RESET & PAGE FOUNDATION
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:      #2563EB;
+      --primary-dark: #1D4ED8;
+      --primary-light:#DBEAFE;
+      --secondary:    #059669;
+      --secondary-light:#D1FAE5;
+      --accent:       #D97706;
+      --accent-light: #FEF3C7;
+      --bg:           #F8FAFC;
+      --fg:           #0F172A;
+      --muted:        #F1F5FD;
+      --border:       #E4ECFC;
+      --destructive:  #DC2626;
+      --white:        #FFFFFF;
+      --gray-400:     #94A3B8;
+      --gray-500:     #64748B;
+      --gray-600:     #475569;
+      --shadow-sm:    0 1px 3px rgba(37,99,235,0.08), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md:    0 4px 16px rgba(37,99,235,0.10), 0 2px 6px rgba(0,0,0,0.06);
+      --shadow-lg:    0 8px 32px rgba(37,99,235,0.12), 0 4px 12px rgba(0,0,0,0.08);
+      --radius-sm:    8px;
+      --radius-md:    12px;
+      --radius-lg:    16px;
+      --radius-xl:    20px;
+      --radius-2xl:   24px;
+      --radius-full:  9999px;
+      --font-head:    'Fredoka', sans-serif;
+      --font-body:    'Nunito', sans-serif;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--font-body);
+      background: #E8EDF5;
+      color: var(--fg);
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    /* ============================================================
+       PAGE HEADER BANNER
+    ============================================================ */
+    .page-banner {
+      background: linear-gradient(135deg, var(--primary) 0%, #1E40AF 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 20px 16px 16px;
+    }
+    .page-banner h1 {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      margin-bottom: 4px;
+    }
+    .page-banner p {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      opacity: 0.85;
+    }
+    .page-banner .badges {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .page-banner .badge {
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: var(--radius-full);
+      padding: 3px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      font-family: var(--font-body);
+    }
+
+    /* ============================================================
+       HOW TO USE NOTE
+    ============================================================ */
+    .howto {
+      text-align: center;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gray-600);
+      padding: 10px 16px 0;
+      letter-spacing: 0.1px;
+    }
+
+    /* ============================================================
+       TAB SWITCHER
+    ============================================================ */
+    .tab-bar {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 16px 0;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: var(--radius-full);
+      border: 2px solid var(--border);
+      background: var(--white);
+      color: var(--gray-500);
+      cursor: pointer;
+      transition: all 0.18s ease;
+      min-height: 44px;
+      white-space: nowrap;
+    }
+    .tab-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .tab-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+    }
+
+    /* ============================================================
+       SCREEN WRAPPER
+    ============================================================ */
+    .screens-container {
+      display: flex;
+      justify-content: center;
+      padding: 24px 16px 0;
+    }
+    .screen {
+      display: none;
+    }
+    .screen.active {
+      display: block;
+    }
+
+    /* ============================================================
+       PHONE FRAME
+    ============================================================ */
+    .phone-frame {
+      width: 375px;
+      min-height: 780px;
+      background: var(--white);
+      border-radius: 36px;
+      box-shadow:
+        0 0 0 8px #1C2333,
+        0 0 0 10px #2D3748,
+        0 24px 64px rgba(0,0,0,0.35),
+        0 8px 24px rgba(0,0,0,0.2);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Notch */
+    .phone-frame::before {
+      content: '';
+      display: block;
+      width: 120px;
+      height: 28px;
+      background: #1C2333;
+      border-radius: 0 0 20px 20px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 10;
+      flex-shrink: 0;
+    }
+
+    /* Status bar */
+    .status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 24px 8px;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: var(--font-body);
+      color: var(--fg);
+      flex-shrink: 0;
+    }
+    .status-bar .time { font-size: 14px; }
+    .status-bar .icons { display: flex; gap: 4px; align-items: center; font-size: 11px; }
+
+    /* Screen content scrollable area */
+    .screen-scroll {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+    .screen-scroll::-webkit-scrollbar { width: 0; }
+
+    /* ============================================================
+       SHARED COMPONENT STYLES
+    ============================================================ */
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      min-height: 44px;
+      padding: 0 20px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+    }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    .btn-outline:hover { background: var(--primary-light); }
+    .btn-secondary {
+      background: var(--secondary);
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(5,150,105,0.3);
+    }
+    .btn-full { width: 100%; }
+
+    /* Cost Badges */
+    .cost-badge {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+    }
+    .badge-free { background: var(--secondary-light); color: #065F46; }
+    .badge-cheap { background: var(--primary-light); color: #1E40AF; }
+    .badge-premium { background: var(--accent-light); color: #92400E; }
+
+    /* ============================================================
+       SCREEN 1: CHILDREN'S BROWSE / HOME
+    ============================================================ */
+    .s1-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 20px 10px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .s1-topbar .app-title {
+      font-family: var(--font-head);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--fg);
+      line-height: 1;
+    }
+    .s1-filter-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: var(--muted);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .s1-chips {
+      display: flex;
+      gap: 8px;
+      padding: 12px 16px;
+      overflow-x: auto;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      -webkit-overflow-scrolling: touch;
+      flex-shrink: 0;
+    }
+    .s1-chips::-webkit-scrollbar { display: none; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px 14px;
+      border-radius: var(--radius-full);
+      border: 2px solid var(--border);
+      background: var(--white);
+      color: var(--gray-600);
+      cursor: pointer;
+      white-space: nowrap;
+      min-height: 44px;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+    .chip.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+      box-shadow: 0 2px 8px rgba(37,99,235,0.25);
+    }
+    .chip.active-green {
+      background: var(--secondary);
+      border-color: var(--secondary);
+      color: var(--white);
+    }
+
+    .s1-cards-area {
+      padding: 14px 12px;
+      background: var(--bg);
+    }
+    .s1-section-label {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--fg);
+      margin-bottom: 12px;
+      padding: 0 4px;
+    }
+    .s1-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .activity-card {
+      background: var(--white);
+      border-radius: var(--radius-2xl);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      position: relative;
+      transition: box-shadow 0.15s ease, transform 0.15s ease;
+    }
+    .activity-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+
+    .card-img {
+      height: 90px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .card-img-eureka { background: linear-gradient(135deg, #60A5FA 0%, #A78BFA 100%); }
+    .card-img-brimham { background: linear-gradient(135deg, #34D399 0%, #059669 100%); }
+    .card-img-cannon { background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%); }
+    .card-img-armouries { background: linear-gradient(135deg, #F87171 0%, #DC2626 100%); }
+    .card-img-ninja { background: linear-gradient(135deg, #FB923C 0%, #EA580C 100%); }
+    .card-img-stockeld { background: linear-gradient(135deg, #E879F9 0%, #9333EA 100%); }
+
+    .card-body {
+      padding: 10px 10px 8px;
+    }
+    .card-name {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--fg);
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 6px;
+    }
+    .card-tags {
+      display: flex;
+      gap: 4px;
+      font-size: 12px;
+    }
+    .card-tag {
+      background: var(--muted);
+      border-radius: var(--radius-sm);
+      padding: 2px 6px;
+      font-size: 11px;
+      font-weight: 500;
+      font-family: var(--font-body);
+      color: var(--gray-500);
+    }
+
+    .heart-btn {
+      position: absolute;
+      bottom: 10px;
+      right: 8px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--muted);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .heart-btn.liked { background: #FEE2E2; border-color: #FECACA; }
+    .heart-btn-placeholder { width: 28px; height: 28px; flex-shrink: 0; }
+
+    /* Bottom Nav */
+    .bottom-nav {
+      display: flex;
+      border-top: 1px solid var(--border);
+      background: var(--white);
+      flex-shrink: 0;
+    }
+    .nav-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 4px;
+      min-height: 60px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: var(--font-body);
+      color: var(--gray-400);
+      gap: 3px;
+    }
+    .nav-item.active { color: var(--primary); }
+    .nav-item .nav-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+      font-size: 16px;
+    }
+    .nav-item.active .nav-icon {
+      background: var(--primary-light);
+    }
+    .nav-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    /* ============================================================
+       SCREEN 2: ACTIVITY DETAIL
+    ============================================================ */
+    .s2-topbar {
+      display: flex;
+      align-items: center;
+      padding: 8px 16px 6px;
+      flex-shrink: 0;
+    }
+    .back-btn {
+      min-width: 44px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-md);
+      background: var(--muted);
+      border: 1px solid var(--border);
+      font-size: 18px;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-weight: 600;
+      color: var(--fg);
+      gap: 4px;
+    }
+
+    .s2-hero {
+      height: 200px;
+      width: 100%;
+      background: linear-gradient(135deg, #34D399 0%, #059669 50%, #047857 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .s2-hero-label {
+      position: absolute;
+      bottom: 12px;
+      left: 16px;
+      background: rgba(0,0,0,0.35);
+      color: white;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(4px);
+    }
+
+    .s2-content {
+      padding: 16px 20px;
+    }
+    .s2-name {
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--fg);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .s2-membership {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .s2-membership-note {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      color: #065F46;
+      background: var(--secondary-light);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+    .s2-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .s2-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gray-600);
+      background: var(--muted);
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      border-radius: var(--radius-full);
+    }
+    .s2-desc {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--gray-600);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+    .s2-map {
+      background: #E5E9F0;
+      border-radius: var(--radius-lg);
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray-600);
+      margin-bottom: 16px;
+      border: 1px solid #CBD5E1;
+      gap: 6px;
+      position: relative;
+      overflow: hidden;
+    }
+    .s2-map::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(0,0,0,0.03) 20px, rgba(0,0,0,0.03) 21px),
+        repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(0,0,0,0.03) 20px, rgba(0,0,0,0.03) 21px);
+    }
+    .s2-map-inner { position: relative; z-index: 1; text-align: center; }
+
+    .s2-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 16px 0;
+    }
+
+    .s2-vote-title {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--fg);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .s2-vote-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .vote-btn {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      min-height: 64px;
+      background: var(--muted);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-xl);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      padding: 8px 4px;
+    }
+    .vote-btn:hover { border-color: var(--primary); background: var(--primary-light); }
+    .vote-btn.selected { border-color: var(--primary); background: var(--primary-light); box-shadow: 0 0 0 2px var(--primary); }
+    .vote-emoji { font-size: 26px; line-height: 1; }
+    .vote-label {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--gray-600);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    /* ============================================================
+       SCREEN 3: ADVENTURE PASSPORT
+    ============================================================ */
+    .s3-header {
+      background: linear-gradient(135deg, var(--primary) 0%, #1E40AF 100%);
+      padding: 16px 20px 20px;
+      flex-shrink: 0;
+    }
+    .s3-family {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 2px;
+    }
+    .s3-title {
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+    .s3-progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 6px;
+    }
+    .s3-progress-bar-bg {
+      background: rgba(255,255,255,0.25);
+      border-radius: var(--radius-full);
+      height: 10px;
+      overflow: hidden;
+    }
+    .s3-progress-fill {
+      background: linear-gradient(90deg, #34D399, #6EE7B7);
+      height: 100%;
+      width: 12.3%;
+      border-radius: var(--radius-full);
+      box-shadow: 0 0 8px rgba(52,211,153,0.6);
+    }
+
+    .s3-stamps-area {
+      padding: 16px;
+    }
+    .s3-stamps-title {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gray-600);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .s3-stamp-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .stamp {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .stamp-circle {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      position: relative;
+    }
+    .stamp-visited {
+      background: linear-gradient(135deg, var(--primary) 0%, #7C3AED 100%);
+      box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+    }
+    .stamp-empty {
+      background: transparent;
+      border: 2.5px dashed var(--border);
+    }
+    .stamp-date {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--gray-500);
+      text-align: center;
+      line-height: 1.2;
+    }
+    .stamp-checkmark {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 18px;
+      height: 18px;
+      background: var(--secondary);
+      border-radius: 50%;
+      border: 2px solid var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      color: white;
+    }
+    .stamp-name {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--fg);
+      text-align: center;
+      line-height: 1.2;
+      max-width: 60px;
+    }
+    .stamp-name.muted { color: var(--gray-400); }
+
+    .s3-achievements {
+      margin-top: 16px;
+      padding: 0 16px 16px;
+    }
+    .achievement-card {
+      background: linear-gradient(135deg, var(--accent-light), #FEF9C3);
+      border: 1px solid #FCD34D;
+      border-radius: var(--radius-xl);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .achievement-icon {
+      font-size: 32px;
+      flex-shrink: 0;
+    }
+    .achievement-text h4 {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 600;
+      color: #92400E;
+      margin-bottom: 2px;
+    }
+    .achievement-text p {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 400;
+      color: #B45309;
+      line-height: 1.4;
+    }
+
+    /* ============================================================
+       SCREEN 4: ITINERARY BUILDER
+    ============================================================ */
+    .s4-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px 8px;
+      flex-shrink: 0;
+    }
+    .s4-title {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--fg);
+    }
+    .s4-nav-arrow {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: var(--muted);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-weight: 700;
+      color: var(--gray-600);
+    }
+    .s4-month {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gray-500);
+      text-align: center;
+      padding: 0 20px 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .week-strip {
+      display: flex;
+      gap: 6px;
+      padding: 0 14px 12px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .week-strip::-webkit-scrollbar { display: none; }
+    .day-pill {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      padding: 8px 10px;
+      border-radius: var(--radius-lg);
+      min-width: 44px;
+      cursor: pointer;
+    }
+    .day-pill.active {
+      background: var(--primary);
+    }
+    .day-pill-label {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--gray-400);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .day-pill.active .day-pill-label { color: rgba(255,255,255,0.75); }
+    .day-pill-num {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--gray-600);
+    }
+    .day-pill.active .day-pill-num { color: var(--white); }
+    .day-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--secondary);
+    }
+    .day-dot.hidden { background: transparent; }
+
+    .s4-days-list {
+      padding: 0 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .day-row {
+      display: flex;
+      align-items: stretch;
+      gap: 10px;
+    }
+    .day-label-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      width: 36px;
+      flex-shrink: 0;
+      padding-top: 12px;
+    }
+    .day-abbr {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--gray-400);
+      text-transform: uppercase;
+    }
+    .day-num-label {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--gray-500);
+    }
+    .day-card-col { flex: 1; }
+
+    .day-empty {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius-xl);
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .day-empty:hover { border-color: var(--primary); background: var(--primary-light); }
+    .day-plus {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--muted);
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--gray-400);
+      font-weight: 300;
+    }
+
+    .day-filled {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 10px 12px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .day-filled-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .day-filled-info { flex: 1; }
+    .day-filled-name {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--fg);
+      margin-bottom: 3px;
+    }
+    .day-filled-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .s4-summary {
+      margin: 14px;
+      background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+      border: 1px solid #BFDBFE;
+      border-radius: var(--radius-xl);
+      padding: 16px;
+    }
+    .s4-summary-title {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--fg);
+      margin-bottom: 10px;
+    }
+    .s4-cost-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .s4-cost-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gray-600);
+    }
+    .s4-cost-value {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--fg);
+    }
+    .s4-cost-value.green { color: var(--secondary); }
+    .s4-divider-thin {
+      height: 1px;
+      background: #BFDBFE;
+      margin: 8px 0;
+    }
+    .s4-saving-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: var(--secondary-light);
+      border: 1px solid #6EE7B7;
+      border-radius: var(--radius-full);
+      padding: 8px 16px;
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 600;
+      color: #065F46;
+      margin-top: 10px;
+    }
+    .s4-share-btn-wrap {
+      padding: 0 14px 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       PAGE HEADER BANNER
+  ============================================================ -->
+  <div class="page-banner">
+    <h1>Days Out in Summer — Design Mockup</h1>
+    <p>Family activity planner for West/North Yorkshire · Children aged 4+</p>
+    <div class="badges">
+      <span class="badge">Theme 1: Sky Blue</span>
+      <span class="badge">Fredoka + Nunito</span>
+      <span class="badge">Soft UI Evolution</span>
+      <span class="badge">WCAG AA+</span>
+      <span class="badge">375px Mobile Frame</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HOW TO USE
+  ============================================================ -->
+  <p class="howto">Click the tabs below to switch between screens</p>
+
+  <!-- ============================================================
+       TAB SWITCHER
+  ============================================================ -->
+  <div class="tab-bar" id="tab-bar">
+    <button class="tab-btn active" data-screen="s1">1 · Browse Home</button>
+    <button class="tab-btn" data-screen="s2">2 · Activity Detail</button>
+    <button class="tab-btn" data-screen="s3">3 · Adventure Passport</button>
+    <button class="tab-btn" data-screen="s4">4 · Itinerary Builder</button>
+  </div>
+
+  <!-- ============================================================
+       SCREENS CONTAINER
+  ============================================================ -->
+  <div class="screens-container">
+
+    <!-- ====================
+         SCREEN 1: BROWSE HOME
+    ==================== -->
+    <div class="screen active" id="s1">
+      <div class="phone-frame">
+        <!-- Notch is ::before pseudo-element -->
+        <div class="status-bar">
+          <span class="time">9:41</span>
+          <div class="icons">
+            <span>●●●</span>
+            <span>WiFi</span>
+            <span>100%</span>
+          </div>
+        </div>
+
+        <!-- Top bar -->
+        <div class="s1-topbar">
+          <span class="app-title">Days Out ☀️</span>
+          <div class="s1-filter-icon" aria-label="Open filters">⊞</div>
+        </div>
+
+        <!-- Filter chips -->
+        <div class="s1-chips" role="group" aria-label="Activity filters">
+          <button class="chip active" aria-pressed="true">☀️ Sunny</button>
+          <button class="chip" aria-pressed="false">🌧 Rainy</button>
+          <button class="chip active-green" aria-pressed="true">🏠 Indoor</button>
+          <button class="chip" aria-pressed="false">🌳 Outdoor</button>
+        </div>
+
+        <!-- Cards scroll area -->
+        <div class="screen-scroll">
+          <div class="s1-cards-area">
+            <div class="s1-section-label">Yorkshire Adventures</div>
+            <div class="s1-grid">
+
+              <!-- Card 1: Eureka! -->
+              <div class="activity-card">
+                <div class="card-img card-img-eureka" aria-hidden="true">🔬</div>
+                <div class="card-body">
+                  <div class="card-name">Eureka!</div>
+                  <span class="cost-badge badge-cheap">Cheap</span>
+                  <div class="card-meta">
+                    <div class="card-tags">
+                      <span class="card-tag">☀️</span>
+                      <span class="card-tag">🏠</span>
+                    </div>
+                    <div class="heart-btn-placeholder"></div>
+                  </div>
+                </div>
+                <div class="heart-btn" aria-label="Add to wishlist">♡</div>
+              </div>
+
+              <!-- Card 2: Brimham Rocks -->
+              <div class="activity-card">
+                <div class="card-img card-img-brimham" aria-hidden="true">🪨</div>
+                <div class="card-body">
+                  <div class="card-name">Brimham Rocks</div>
+                  <span class="cost-badge badge-free">FREE w/ NT</span>
+                  <div class="card-meta">
+                    <div class="card-tags">
+                      <span class="card-tag">☀️</span>
+                      <span class="card-tag">🌳</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="heart-btn liked" aria-label="Remove from wishlist">♥</div>
+              </div>
+
+              <!-- Card 3: Cannon Hall Farm -->
+              <div class="activity-card">
+                <div class="card-img card-img-cannon" aria-hidden="true">🐑</div>
+                <div class="card-body">
+                  <div class="card-name">Cannon Hall Farm</div>
+                  <span class="cost-badge badge-cheap">Cheap</span>
+                  <div class="card-meta">
+                    <div class="card-tags">
+                      <span class="card-tag">☀️</span>
+                      <span class="card-tag">🌳</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="heart-btn" aria-label="Add to wishlist">♡</div>
+              </div>
+
+              <!-- Card 4: Royal Armouries -->
+              <div class="activity-card">
+                <div class="card-img card-img-armouries" aria-hidden="true">⚔️</div>
+                <div class="card-body">
+                  <div class="card-name">Royal Armouries</div>
+                  <span class="cost-badge badge-free">FREE</span>
+                  <div class="card-meta">
+                    <div class="card-tags">
+                      <span class="card-tag">🌧</span>
+                      <span class="card-tag">🏠</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="heart-btn" aria-label="Add to wishlist">♡</div>
+              </div>
+
+              <!-- Card 5: Ninja Warrior -->
+              <div class="activity-card">
+                <div class="card-img card-img-ninja" aria-hidden="true">🤸</div>
+                <div class="card-body">
+                  <div class="card-name">Ninja Warrior</div>
+                  <span class="cost-badge badge-cheap">Cheap</span>
+                  <div class="card-meta">
+                    <div class="card-tags">
+                      <span class="card-tag">🌧</span>
+                      <span class="card-tag">🏠</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="heart-btn" aria-label="Add to wishlist">♡</div>
+              </div>
+
+              <!-- Card 6: Stockeld Park -->
+              <div class="activity-card">
+                <div class="card-img card-img-stockeld" aria-hidden="true">🌲</div>
+                <div class="card-body">
+                  <div class="card-name">Stockeld Park</div>
+                  <span class="cost-badge badge-premium">Premium</span>
+                  <div class="card-meta">
+                    <div class="card-tags">
+                      <span class="card-tag">☀️</span>
+                      <span class="card-tag">🌳</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="heart-btn" aria-label="Add to wishlist">♡</div>
+              </div>
+
+            </div><!-- /grid -->
+          </div><!-- /cards-area -->
+        </div><!-- /screen-scroll -->
+
+        <!-- Bottom Nav -->
+        <nav class="bottom-nav" aria-label="Main navigation">
+          <div class="nav-item active" aria-current="page">
+            <div class="nav-icon">🏠</div>
+            <span class="nav-label">Home</span>
+          </div>
+          <div class="nav-item">
+            <div class="nav-icon">🎒</div>
+            <span class="nav-label">Passport</span>
+          </div>
+          <div class="nav-item">
+            <div class="nav-icon">👍</div>
+            <span class="nav-label">Vote</span>
+          </div>
+          <div class="nav-item">
+            <div class="nav-icon">📅</div>
+            <span class="nav-label">Plan</span>
+          </div>
+        </nav>
+
+      </div><!-- /phone-frame -->
+    </div><!-- /screen s1 -->
+
+
+    <!-- ====================
+         SCREEN 2: ACTIVITY DETAIL
+    ==================== -->
+    <div class="screen" id="s2">
+      <div class="phone-frame">
+        <div class="status-bar">
+          <span class="time">9:41</span>
+          <div class="icons"><span>●●●</span><span>WiFi</span><span>100%</span></div>
+        </div>
+
+        <div class="s2-topbar">
+          <button class="back-btn" aria-label="Go back">← Back</button>
+        </div>
+
+        <div class="screen-scroll">
+          <!-- Hero image -->
+          <div class="s2-hero" aria-label="Brimham Rocks landscape photo">
+            🪨
+            <div class="s2-hero-label">North Yorkshire Moors</div>
+          </div>
+
+          <div class="s2-content">
+            <div class="s2-name">Brimham Rocks</div>
+
+            <div class="s2-membership">
+              <span class="cost-badge badge-free" style="font-size:13px;padding:5px 12px;">FREE</span>
+              <span class="s2-membership-note">FREE with National Trust membership</span>
+            </div>
+
+            <div class="s2-tags">
+              <span class="s2-tag">☀️ Good weather</span>
+              <span class="s2-tag">🌳 Outdoor</span>
+              <span class="s2-tag">🍽️ Food on-site</span>
+              <span class="s2-tag">⏱ 3–4 hours</span>
+            </div>
+
+            <p class="s2-desc">
+              A spectacular landscape of ancient moorland rock formations shaped by millions of years of erosion. Kids can scramble, climb, and explore the maze of towering rocks — brilliant for adventurous families on a sunny day.
+            </p>
+
+            <!-- Map placeholder -->
+            <div class="s2-map" aria-label="Map placeholder for Brimham Rocks">
+              <div class="s2-map-inner">
+                <div style="font-size:20px;margin-bottom:4px;">📍</div>
+                <div>Brimham Rocks, North Yorkshire</div>
+                <div style="font-size:11px;color:#94A3B8;margin-top:2px;">HG3 4DW · 2h from Leeds</div>
+              </div>
+            </div>
+
+            <button class="btn btn-outline btn-full" style="margin-bottom:8px;">
+              🌐 Visit Website
+            </button>
+
+            <div class="s2-divider"></div>
+
+            <div class="s2-vote-title">What do you think?</div>
+            <div class="s2-vote-row" role="group" aria-label="Rate this activity">
+              <button class="vote-btn selected" aria-label="Love it">
+                <span class="vote-emoji">👍</span>
+                <span class="vote-label">Love it</span>
+              </button>
+              <button class="vote-btn" aria-label="Maybe">
+                <span class="vote-emoji">😐</span>
+                <span class="vote-label">Maybe</span>
+              </button>
+              <button class="vote-btn" aria-label="Not for me">
+                <span class="vote-emoji">😴</span>
+                <span class="vote-label">Not for me</span>
+              </button>
+            </div>
+
+            <button class="btn btn-primary btn-full">
+              ♡ Add to Wishlist
+            </button>
+
+            <div style="height:20px;"></div>
+          </div>
+        </div>
+
+        <nav class="bottom-nav" aria-label="Main navigation">
+          <div class="nav-item">
+            <div class="nav-icon">🏠</div>
+            <span class="nav-label">Home</span>
+          </div>
+          <div class="nav-item">
+            <div class="nav-icon">🎒</div>
+            <span class="nav-label">Passport</span>
+          </div>
+          <div class="nav-item active" aria-current="page">
+            <div class="nav-icon">👍</div>
+            <span class="nav-label">Vote</span>
+          </div>
+          <div class="nav-item">
+            <div class="nav-icon">📅</div>
+            <span class="nav-label">Plan</span>
+          </div>
+        </nav>
+      </div><!-- /phone-frame -->
+    </div><!-- /screen s2 -->
+
+
+    <!-- ====================
+         SCREEN 3: ADVENTURE PASSPORT
+    ==================== -->
+    <div class="screen" id="s3">
+      <div class="phone-frame">
+        <div class="status-bar" style="background:var(--primary);color:white;">
+          <span class="time">9:41</span>
+          <div class="icons"><span>●●●</span><span>WiFi</span><span>100%</span></div>
+        </div>
+
+        <!-- Gradient header -->
+        <div class="s3-header">
+          <div class="s3-family">The Atha Family</div>
+          <div class="s3-title">Adventure Passport</div>
+          <div class="s3-progress-label">
+            <span>8 of 65 adventures</span>
+            <span>12%</span>
+          </div>
+          <div class="s3-progress-bar-bg" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="65" aria-label="8 of 65 adventures completed">
+            <div class="s3-progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="screen-scroll">
+          <!-- Visited stamps -->
+          <div class="s3-stamps-area">
+            <div class="s3-stamps-title">Visited · 8 Stamps</div>
+            <div class="s3-stamp-grid">
+
+              <div class="stamp">
+                <div class="stamp-circle stamp-visited">
+                  <span aria-hidden="true">🔬</span>
+                  <div class="stamp-checkmark">✓</div>
+                </div>
+                <div class="stamp-name">Eureka!</div>
+                <div class="stamp-date">12 Jul</div>
+              </div>
+
+              <div class="stamp">
+                <div class="stamp-circle stamp-visited" style="background: linear-gradient(135deg, #34D399 0%, #059669 100%);">
+                  <span aria-hidden="true">🪨</span>
+                  <div class="stamp-checkmark">✓</div>
+                </div>
+                <div class="stamp-name">Brimham Rocks</div>
+                <div class="stamp-date">18 Jul</div>
+              </div>
+
+              <div class="stamp">
+                <div class="stamp-circle stamp-visited" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">
+                  <span aria-hidden="true">🐑</span>
+                  <div class="stamp-checkmark">✓</div>
+                </div>
+                <div class="stamp-name">Cannon Hall</div>
+                <div class="stamp-date">22 Jul</div>
+              </div>
+
+              <div class="stamp">
+                <div class="stamp-circle stamp-visited" style="background: linear-gradient(135deg, #F87171 0%, #DC2626 100%);">
+                  <span aria-hidden="true">⚔️</span>
+                  <div class="stamp-checkmark">✓</div>
+                </div>
+                <div class="stamp-name">Royal Armouries</div>
+                <div class="stamp-date">25 Jul</div>
+              </div>
+
+              <div class="stamp">
+                <div class="stamp-circle stamp-visited" style="background: linear-gradient(135deg, #FB923C 0%, #EA580C 100%);">
+                  <span aria-hidden="true">🚂</span>
+                  <div class="stamp-checkmark">✓</div>
+                </div>
+                <div class="stamp-name">Middleton Rly</div>
+                <div class="stamp-date">28 Jul</div>
+              </div>
+
+              <div class="stamp">
+                <div class="stamp-circle stamp-visited" style="background: linear-gradient(135deg, #A78BFA 0%, #7C3AED 100%);">
+                  <span aria-hidden="true">🌲</span>
+                  <div class="stamp-checkmark">✓</div>
+                </div>
+                <div class="stamp-name">Stockeld Park</div>
+                <div class="stamp-date">1 Aug</div>
+              </div>
+
+              <div class="stamp">
+                <div class="stamp-circle stamp-visited" style="background: linear-gradient(135deg, #6EE7B7 0%, #059669 100%);">
+                  <span aria-hidden="true">🏖️</span>
+                  <div class="stamp-checkmark">✓</div>
+                </div>
+                <div class="stamp-name">Scarborough</div>
+                <div class="stamp-date">3 Aug</div>
+              </div>
+
+              <div class="stamp">
+                <div class="stamp-circle stamp-visited" style="background: linear-gradient(135deg, #67E8F9 0%, #0284C7 100%);">
+                  <span aria-hidden="true">🎭</span>
+                  <div class="stamp-checkmark">✓</div>
+                </div>
+                <div class="stamp-name">Harewood House</div>
+                <div class="stamp-date">5 Aug</div>
+              </div>
+
+            </div>
+
+            <!-- Empty stamps -->
+            <div style="margin-top:16px;">
+              <div class="s3-stamps-title">Still to Explore · 57 Remaining</div>
+              <div class="s3-stamp-grid">
+                <div class="stamp">
+                  <div class="stamp-circle stamp-empty" aria-label="Stamp not yet earned"></div>
+                  <div class="stamp-name muted">Ninja Warrior</div>
+                  <div class="stamp-date">—</div>
+                </div>
+                <div class="stamp">
+                  <div class="stamp-circle stamp-empty" aria-label="Stamp not yet earned"></div>
+                  <div class="stamp-name muted">Yorkshire Sculpture</div>
+                  <div class="stamp-date">—</div>
+                </div>
+                <div class="stamp">
+                  <div class="stamp-circle stamp-empty" aria-label="Stamp not yet earned"></div>
+                  <div class="stamp-name muted">Ribblehead Viaduct</div>
+                  <div class="stamp-date">—</div>
+                </div>
+                <div class="stamp">
+                  <div class="stamp-circle stamp-empty" aria-label="Stamp not yet earned"></div>
+                  <div class="stamp-name muted">Tropical World</div>
+                  <div class="stamp-date">—</div>
+                </div>
+                <div class="stamp">
+                  <div class="stamp-circle stamp-empty" aria-label="Stamp not yet earned"></div>
+                  <div class="stamp-name muted">Flamingo Land</div>
+                  <div class="stamp-date">—</div>
+                </div>
+                <div class="stamp">
+                  <div class="stamp-circle stamp-empty" aria-label="Stamp not yet earned"></div>
+                  <div class="stamp-name muted">Bolton Abbey</div>
+                  <div class="stamp-date">—</div>
+                </div>
+                <div class="stamp">
+                  <div class="stamp-circle stamp-empty" aria-label="Stamp not yet earned"></div>
+                  <div class="stamp-name muted">Skipton Castle</div>
+                  <div class="stamp-date">—</div>
+                </div>
+                <div class="stamp">
+                  <div class="stamp-circle stamp-empty" aria-label="Stamp not yet earned"></div>
+                  <div class="stamp-name muted">Lightwater Valley</div>
+                  <div class="stamp-date">—</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Achievement card -->
+          <div class="s3-achievements">
+            <div class="achievement-card">
+              <div class="achievement-icon">🏆</div>
+              <div class="achievement-text">
+                <h4>Explorer Badge Unlocked!</h4>
+                <p>You've visited 8 adventures — keep going to earn the Yorkshire Explorer title at 20!</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="height:16px;"></div>
+        </div><!-- /scroll -->
+
+        <nav class="bottom-nav" aria-label="Main navigation">
+          <div class="nav-item">
+            <div class="nav-icon">🏠</div>
+            <span class="nav-label">Home</span>
+          </div>
+          <div class="nav-item active" aria-current="page">
+            <div class="nav-icon">🎒</div>
+            <span class="nav-label">Passport</span>
+          </div>
+          <div class="nav-item">
+            <div class="nav-icon">👍</div>
+            <span class="nav-label">Vote</span>
+          </div>
+          <div class="nav-item">
+            <div class="nav-icon">📅</div>
+            <span class="nav-label">Plan</span>
+          </div>
+        </nav>
+      </div><!-- /phone-frame -->
+    </div><!-- /screen s3 -->
+
+
+    <!-- ====================
+         SCREEN 4: ITINERARY BUILDER
+    ==================== -->
+    <div class="screen" id="s4">
+      <div class="phone-frame">
+        <div class="status-bar">
+          <span class="time">9:41</span>
+          <div class="icons"><span>●●●</span><span>WiFi</span><span>100%</span></div>
+        </div>
+
+        <div class="s4-header">
+          <button class="s4-nav-arrow" aria-label="Previous week">&#8249;</button>
+          <div class="s4-title">This Week</div>
+          <button class="s4-nav-arrow" aria-label="Next week">&#8250;</button>
+        </div>
+        <div class="s4-month">August 2025</div>
+
+        <!-- Week strip -->
+        <div class="week-strip" role="list" aria-label="Week days">
+          <div class="day-pill active" role="listitem">
+            <span class="day-pill-label">Mon</span>
+            <span class="day-pill-num">4</span>
+            <div class="day-dot"></div>
+          </div>
+          <div class="day-pill" role="listitem">
+            <span class="day-pill-label">Tue</span>
+            <span class="day-pill-num">5</span>
+            <div class="day-dot hidden"></div>
+          </div>
+          <div class="day-pill" role="listitem">
+            <span class="day-pill-label">Wed</span>
+            <span class="day-pill-num">6</span>
+            <div class="day-dot"></div>
+          </div>
+          <div class="day-pill" role="listitem">
+            <span class="day-pill-label">Thu</span>
+            <span class="day-pill-num">7</span>
+            <div class="day-dot hidden"></div>
+          </div>
+          <div class="day-pill" role="listitem">
+            <span class="day-pill-label">Fri</span>
+            <span class="day-pill-num">8</span>
+            <div class="day-dot hidden"></div>
+          </div>
+          <div class="day-pill" role="listitem">
+            <span class="day-pill-label">Sat</span>
+            <span class="day-pill-num">9</span>
+            <div class="day-dot"></div>
+          </div>
+          <div class="day-pill" role="listitem">
+            <span class="day-pill-label">Sun</span>
+            <span class="day-pill-num">10</span>
+            <div class="day-dot hidden"></div>
+          </div>
+        </div>
+
+        <div class="screen-scroll">
+          <div class="s4-days-list">
+
+            <!-- Monday — Eureka! -->
+            <div class="day-row">
+              <div class="day-label-col">
+                <span class="day-abbr">MON</span>
+                <span class="day-num-label">4</span>
+              </div>
+              <div class="day-card-col">
+                <div class="day-filled">
+                  <div class="day-filled-icon" style="background:linear-gradient(135deg,#60A5FA,#A78BFA);">🔬</div>
+                  <div class="day-filled-info">
+                    <div class="day-filled-name">Eureka!</div>
+                    <div class="day-filled-meta">
+                      <span class="cost-badge badge-cheap">£15.50</span>
+                      <span style="font-size:13px;">☀️ 🏠</span>
+                    </div>
+                  </div>
+                  <button style="background:none;border:none;font-size:16px;cursor:pointer;color:#94A3B8;padding:8px;" aria-label="Remove Eureka from Monday">✕</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tuesday — Empty -->
+            <div class="day-row">
+              <div class="day-label-col">
+                <span class="day-abbr">TUE</span>
+                <span class="day-num-label">5</span>
+              </div>
+              <div class="day-card-col">
+                <div class="day-empty" aria-label="Add activity to Tuesday">
+                  <div class="day-plus">+</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Wednesday — Brimham Rocks -->
+            <div class="day-row">
+              <div class="day-label-col">
+                <span class="day-abbr">WED</span>
+                <span class="day-num-label">6</span>
+              </div>
+              <div class="day-card-col">
+                <div class="day-filled">
+                  <div class="day-filled-icon" style="background:linear-gradient(135deg,#34D399,#059669);">🪨</div>
+                  <div class="day-filled-info">
+                    <div class="day-filled-name">Brimham Rocks</div>
+                    <div class="day-filled-meta">
+                      <span class="cost-badge badge-free">FREE w/NT</span>
+                      <span style="font-size:13px;">☀️ 🌳</span>
+                    </div>
+                  </div>
+                  <button style="background:none;border:none;font-size:16px;cursor:pointer;color:#94A3B8;padding:8px;" aria-label="Remove Brimham Rocks from Wednesday">✕</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Thursday — Empty -->
+            <div class="day-row">
+              <div class="day-label-col">
+                <span class="day-abbr">THU</span>
+                <span class="day-num-label">7</span>
+              </div>
+              <div class="day-card-col">
+                <div class="day-empty" aria-label="Add activity to Thursday">
+                  <div class="day-plus">+</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Friday — Empty -->
+            <div class="day-row">
+              <div class="day-label-col">
+                <span class="day-abbr">FRI</span>
+                <span class="day-num-label">8</span>
+              </div>
+              <div class="day-card-col">
+                <div class="day-empty" aria-label="Add activity to Friday">
+                  <div class="day-plus">+</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Saturday — Cannon Hall Farm -->
+            <div class="day-row">
+              <div class="day-label-col">
+                <span class="day-abbr">SAT</span>
+                <span class="day-num-label">9</span>
+              </div>
+              <div class="day-card-col">
+                <div class="day-filled">
+                  <div class="day-filled-icon" style="background:linear-gradient(135deg,#FCD34D,#F59E0B);">🐑</div>
+                  <div class="day-filled-info">
+                    <div class="day-filled-name">Cannon Hall Farm</div>
+                    <div class="day-filled-meta">
+                      <span class="cost-badge badge-cheap">£9pp</span>
+                      <span style="font-size:13px;">☀️ 🌳</span>
+                    </div>
+                  </div>
+                  <button style="background:none;border:none;font-size:16px;cursor:pointer;color:#94A3B8;padding:8px;" aria-label="Remove Cannon Hall Farm from Saturday">✕</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sunday — Empty -->
+            <div class="day-row">
+              <div class="day-label-col">
+                <span class="day-abbr">SUN</span>
+                <span class="day-num-label">10</span>
+              </div>
+              <div class="day-card-col">
+                <div class="day-empty" aria-label="Add activity to Sunday">
+                  <div class="day-plus">+</div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /days-list -->
+
+          <!-- Cost summary card -->
+          <div class="s4-summary">
+            <div class="s4-summary-title">Week Cost Summary</div>
+            <div class="s4-cost-row">
+              <span class="s4-cost-label">Full price total</span>
+              <span class="s4-cost-value">£44.50</span>
+            </div>
+            <div class="s4-divider-thin"></div>
+            <div class="s4-cost-row">
+              <span class="s4-cost-label">With your memberships</span>
+              <span class="s4-cost-value green">£29.00</span>
+            </div>
+            <div class="s4-saving-badge">
+              You save £15.50 💚
+            </div>
+          </div>
+
+          <!-- Share button -->
+          <div class="s4-share-btn-wrap">
+            <button class="btn btn-secondary btn-full">
+              &#8599; Share This Week
+            </button>
+          </div>
+
+        </div><!-- /scroll -->
+
+        <nav class="bottom-nav" aria-label="Main navigation">
+          <div class="nav-item">
+            <div class="nav-icon">🏠</div>
+            <span class="nav-label">Home</span>
+          </div>
+          <div class="nav-item">
+            <div class="nav-icon">🎒</div>
+            <span class="nav-label">Passport</span>
+          </div>
+          <div class="nav-item">
+            <div class="nav-icon">👍</div>
+            <span class="nav-label">Vote</span>
+          </div>
+          <div class="nav-item active" aria-current="page">
+            <div class="nav-icon">📅</div>
+            <span class="nav-label">Plan</span>
+          </div>
+        </nav>
+      </div><!-- /phone-frame -->
+    </div><!-- /screen s4 -->
+
+  </div><!-- /screens-container -->
+
+
+  <!-- ============================================================
+       COLOR PALETTE REFERENCE STRIP
+  ============================================================ -->
+  <div style="text-align:center;padding:32px 16px 0;">
+    <div style="font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">
+      Theme 1 Color Palette
+    </div>
+    <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;max-width:540px;margin:0 auto;">
+      <div style="text-align:center;">
+        <div style="width:48px;height:48px;background:#2563EB;border-radius:12px;box-shadow:0 2px 8px rgba(37,99,235,0.3);"></div>
+        <div style="font-family:'Nunito',sans-serif;font-size:10px;font-weight:600;color:#64748B;margin-top:4px;">Primary</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:48px;height:48px;background:#059669;border-radius:12px;box-shadow:0 2px 8px rgba(5,150,105,0.3);"></div>
+        <div style="font-family:'Nunito',sans-serif;font-size:10px;font-weight:600;color:#64748B;margin-top:4px;">Secondary</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:48px;height:48px;background:#D97706;border-radius:12px;box-shadow:0 2px 8px rgba(217,119,6,0.3);"></div>
+        <div style="font-family:'Nunito',sans-serif;font-size:10px;font-weight:600;color:#64748B;margin-top:4px;">Accent</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:48px;height:48px;background:#F8FAFC;border-radius:12px;border:1px solid #E4ECFC;"></div>
+        <div style="font-family:'Nunito',sans-serif;font-size:10px;font-weight:600;color:#64748B;margin-top:4px;">Background</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:48px;height:48px;background:#0F172A;border-radius:12px;"></div>
+        <div style="font-family:'Nunito',sans-serif;font-size:10px;font-weight:600;color:#64748B;margin-top:4px;">Foreground</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:48px;height:48px;background:#F1F5FD;border-radius:12px;border:1px solid #E4ECFC;"></div>
+        <div style="font-family:'Nunito',sans-serif;font-size:10px;font-weight:600;color:#64748B;margin-top:4px;">Muted</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:48px;height:48px;background:#E4ECFC;border-radius:12px;border:1px solid #CBD5E1;"></div>
+        <div style="font-family:'Nunito',sans-serif;font-size:10px;font-weight:600;color:#64748B;margin-top:4px;">Border</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:48px;height:48px;background:#DC2626;border-radius:12px;box-shadow:0 2px 8px rgba(220,38,38,0.3);"></div>
+        <div style="font-family:'Nunito',sans-serif;font-size:10px;font-weight:600;color:#64748B;margin-top:4px;">Destructive</div>
+      </div>
+    </div>
+    <div style="font-family:'Nunito',sans-serif;font-size:11px;color:#94A3B8;margin-top:20px;max-width:400px;margin-left:auto;margin-right:auto;">
+      Fredoka (headings 400–700) · Nunito (body 300–700) · WCAG AA+ contrast · 44px touch targets
+    </div>
+    <div style="height:40px;"></div>
+  </div>
+
+
+  <!-- ============================================================
+       TAB SWITCHER JAVASCRIPT
+  ============================================================ -->
+  <script>
+    (function() {
+      var tabs = document.querySelectorAll('.tab-btn');
+      var screens = document.querySelectorAll('.screen');
+
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          var target = this.getAttribute('data-screen');
+
+          // Update tabs
+          tabs.forEach(function(t) { t.classList.remove('active'); });
+          this.classList.add('active');
+
+          // Update screens
+          screens.forEach(function(s) { s.classList.remove('active'); });
+          var targetScreen = document.getElementById(target);
+          if (targetScreen) { targetScreen.classList.add('active'); }
+
+          // Scroll to top of screens container
+          window.scrollTo({ top: document.querySelector('.tab-bar').offsetTop - 20, behavior: 'smooth' });
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

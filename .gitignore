@@ -1,0 +1,7 @@
+days-out-code/.env
+days-out-code/.env.local
+days-out-code/.env*.local
+days-out-code/node_modules/
+days-out-code/.next/
+days-out-code/dist/
+.DS_Store
