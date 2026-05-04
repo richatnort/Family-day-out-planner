@@ -281,7 +281,7 @@ export default function ActivityDetailPage({
 
         {/* Tags row */}
         <div className="flex gap-2 mt-2 flex-wrap items-center">
-          <CostBadge tier={activity.costTier} />
+          <CostBadge costTier={activity.costTier} coveringMembership={coveringMembership} />
 
           <span className="inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full bg-[var(--color-muted)] text-[var(--color-foreground)]/70">
             {activity.weather === "sunny" ? "☀️" : activity.weather === "rainy-friendly" ? "🌧️" : "🌤️"}
