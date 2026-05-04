@@ -154,12 +154,12 @@ export default function ActivityDetailPage({
     }
   }
 
-  async function handleMarkVisited(notes: string, visitedDate: string) {
+  async function handleMarkVisited(activityId: number, visitedDate: string, notes: string) {
     try {
       const res = await fetch("/api/passport", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ activityId: Number(id), notes, visitedDate }),
+        body: JSON.stringify({ activityId, notes, visitedDate }),
       });
       if (!res.ok) throw new Error("Passport stamp failed");
       setShowVisitModal(false);
@@ -436,11 +436,18 @@ export default function ActivityDetailPage({
 
       {/* Modals */}
       {showCalendar && (
-        <AddToCalendar activity={activity} onClose={() => setShowCalendar(false)} />
+        <AddToCalendar
+          activityId={activity.id}
+          activityName={activity.name}
+          locationName={activity.locationName ?? ""}
+          websiteUrl={activity.websiteUrl}
+          onClose={() => setShowCalendar(false)}
+        />
       )}
       {showVisitModal && (
         <MarkVisitedModal
-          activity={activity}
+          activityId={activity.id}
+          activityName={activity.name}
           onConfirm={handleMarkVisited}
           onClose={() => setShowVisitModal(false)}
         />

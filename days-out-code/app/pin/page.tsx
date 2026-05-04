@@ -8,6 +8,7 @@ export default function PinPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") ?? "/";
+  const errorParam = searchParams.get("error");
 
   const [pin, setPin] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
@@ -105,6 +106,11 @@ export default function PinPage() {
         <p className="mt-2 text-sm text-[var(--color-foreground)]/60 font-[family-name:var(--font-body)]">
           Enter your family PIN
         </p>
+        {errorParam && (
+          <p className="mt-1 text-sm font-medium text-[var(--color-accent)] font-[family-name:var(--font-body)]">
+            Your session ended — enter your PIN to continue
+          </p>
+        )}
       </div>
 
       {/* PIN dots */}

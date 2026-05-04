@@ -94,7 +94,7 @@ export default function BrowsePage() {
     return sorted[0]?.name ?? null;
   }
 
-  async function handleWishlistToggle(activityId: number) {
+  async function handleWishlistToggle(activityId: number, _currentState?: boolean) {
     const isWishlisted = wishlist.includes(activityId);
     // Optimistic update
     setWishlist((prev) =>
@@ -145,8 +145,16 @@ export default function BrowsePage() {
           <FilterChips
             activeWeather={activeWeather}
             activeSetting={activeSetting}
-            onWeatherChange={setActiveWeather}
-            onSettingChange={setActiveSetting}
+            onToggleWeather={(val) =>
+              setActiveWeather((prev) =>
+                prev.includes(val) ? prev.filter((v) => v !== val) : [...prev, val]
+              )
+            }
+            onToggleSetting={(val) =>
+              setActiveSetting((prev) =>
+                prev.includes(val) ? prev.filter((v) => v !== val) : [...prev, val]
+              )
+            }
           />
           <button
             onClick={handleSurpriseMe}
@@ -200,10 +208,16 @@ export default function BrowsePage() {
           activities.map((activity) => (
             <ActivityCard
               key={activity.id}
-              activity={activity}
+              id={activity.id}
+              name={activity.name}
+              imageUrl={activity.imageUrl}
+              costTier={activity.costTier}
+              weather={activity.weather}
+              setting={activity.setting}
               isWishlisted={wishlist.includes(activity.id)}
               coveringMembership={getCoveringMembership(activity.id)}
-              onWishlistToggle={() => handleWishlistToggle(activity.id)}
+              onWishlistToggle={handleWishlistToggle}
+              onClick={() => router.push(`/${activity.id}`)}
             />
           ))}
       </div>
