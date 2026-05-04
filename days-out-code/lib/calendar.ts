@@ -3,6 +3,7 @@ import ical from "ical-generator";
 interface CalendarParams {
   name: string;
   locationName?: string;
+  websiteUrl?: string;
   date?: string;
   time?: string;
 }
@@ -17,11 +18,14 @@ export function generateIcal(params: CalendarParams): string {
   const endDate = new Date(startDate);
   endDate.setHours(endDate.getHours() + 3);
 
+  const description = [params.websiteUrl, params.locationName].filter(Boolean).join("\n");
+
   cal.createEvent({
     start: startDate,
     end: endDate,
     summary: params.name,
     location: params.locationName,
+    description: description || undefined,
   });
 
   return cal.toString();
@@ -40,11 +44,14 @@ export function buildGoogleCalendarUrl(params: CalendarParams): string {
     dates = `${fmt(start)}/${fmt(end)}`;
   }
 
+  const details = [params.websiteUrl, params.locationName].filter(Boolean).join("\n");
+
   const p = new URLSearchParams({
     action: "TEMPLATE",
     text: params.name,
     ...(params.locationName && { location: params.locationName }),
     ...(dates && { dates }),
+    ...(details && { details }),
   });
 
   return `https://calendar.google.com/calendar/render?${p.toString()}`;

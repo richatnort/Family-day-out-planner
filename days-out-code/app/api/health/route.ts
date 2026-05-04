@@ -1,12 +1,17 @@
 import { NextResponse } from "next/server";
 import { db } from "@/db";
 import { sql } from "drizzle-orm";
+import { logger } from "@/lib/logger";
 
 export async function GET() {
+  let dbStatus: "ok" | "error" = "ok";
+
   try {
     await db.execute(sql`SELECT 1`);
-    return NextResponse.json({ status: "ok", db: "ok" });
-  } catch {
-    return NextResponse.json({ status: "ok", db: "error" }, { status: 503 });
+  } catch (err) {
+    logger.error({ err }, "Health check db ping failed");
+    dbStatus = "error";
   }
+
+  return NextResponse.json({ status: "ok", db: dbStatus });
 }

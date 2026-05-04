@@ -1,37 +1,33 @@
 import type { Metadata } from "next";
 import { Fredoka, Nunito } from "next/font/google";
 import "./globals.css";
+import { ToastProvider } from "@/components/toast";
 
 const fredoka = Fredoka({
   subsets: ["latin"],
-  weight: ["400", "600"],
   variable: "--font-fredoka",
-  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const nunito = Nunito({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
   variable: "--font-nunito",
-  display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: "Days Out in Summer",
-  description: "Discover and plan Yorkshire days out for the whole family",
+  description: "Family adventure planner for West & North Yorkshire",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${fredoka.variable} ${nunito.variable} h-full`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${fredoka.variable} ${nunito.variable} h-full`}>
+      <body className="bg-[var(--color-background)] text-[var(--color-foreground)] font-[family-name:var(--font-body)] h-full">
+        <ToastProvider>
+          {children}
+        </ToastProvider>
+      </body>
     </html>
   );
 }
