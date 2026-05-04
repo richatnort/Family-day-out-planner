@@ -419,8 +419,8 @@ export default function ActivityDetailPage({
               {mapExpanded ? (
                 <div className="h-[300px] rounded-[var(--radius-lg)] overflow-hidden mt-2">
                   <ActivityMap
-                    lat={parseFloat(activity.lat)}
-                    lng={parseFloat(activity.lng)}
+                    lat={activity.lat!}
+                    lng={activity.lng!}
                     name={activity.name}
                   />
                 </div>
