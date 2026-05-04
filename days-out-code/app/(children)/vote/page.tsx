@@ -179,7 +179,7 @@ export default function VotePage() {
                   activityId={activity.id}
                   votes={getVotesForActivity(activity.id)}
                   voterName={voterName}
-                  onVote={(emoji: string) => handleVote(activity.id, emoji)}
+                  onVote={handleVote}
                 />
               </div>
             ))}

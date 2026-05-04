@@ -135,13 +135,13 @@ export default function ActivityDetailPage({
     }
   }
 
-  function handleVote(emoji: string) {
+  function handleVote(activityId: number, emoji: string) {
     if (!voterName) {
       setPendingVoteEmoji(emoji);
       setShowVoterModal(true);
       return;
     }
-    castVote(Number(id), emoji, voterName);
+    castVote(activityId, emoji, voterName);
   }
 
   function handleVoterNameSubmit(name: string) {
