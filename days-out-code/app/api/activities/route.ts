@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
       }
     }
     if (values.size === 0) return undefined;
-    return inArray(activities.weather, [...values] as [string, ...string[]]);
+    return inArray(activities.weather, [...values] as ("sunny" | "rainy-friendly" | "both")[]);
   };
 
   // Build setting filter
@@ -49,7 +49,7 @@ export async function GET(request: NextRequest) {
       }
     }
     if (values.size === 0) return undefined;
-    return inArray(activities.setting, [...values] as [string, ...string[]]);
+    return inArray(activities.setting, [...values] as ("indoor" | "outdoor" | "both")[]);
   };
 
   const weatherFilter = buildWeatherFilter(weatherParams);
