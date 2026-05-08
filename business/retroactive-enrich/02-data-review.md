@@ -17,6 +17,7 @@ Run `npx tsx db/scripts/03-apply-enrichment.ts` when you're happy with this file
 ## Brimham Rocks
 status: include
 websiteUrl: https://www.nationaltrust.org.uk/visit/yorkshire/brimham-rocks
+imageUrl: /images/activities/brimham-rocks.jpg
 description: Scramble and climb among giant ancient rock formations balanced by nature — no ropes needed! Explore weird and wonderful shapes on the open moorland with stunning Yorkshire views.
 category: nature
 costTier: free
@@ -30,6 +31,7 @@ prebooking: false
 ## Cannon Hall Farm
 status: include
 websiteUrl: https://www.cannonhallfarm.co.uk
+imageUrl: /images/activities/cannon-hall-farm.jpg
 description: Meet hundreds of animals, race through Europe's biggest tube maze, and play all day on one of northern England's largest adventure playgrounds on a real working Yorkshire farm.
 category: farm
 costTier: moderate
@@ -69,6 +71,7 @@ prebooking: false
 ## Dalby Forest
 status: include
 websiteUrl: https://www.forestryengland.uk/dalby-forest
+imageUrl: /images/activities/dalby-forest.jpg
 description: Follow the Gruffalo Trail, zoom around mountain bike tracks, and discover Go Ape adventures through 8,500 acres of stunning North Yorkshire forest — fun for every age!
 category: nature
 costTier: cheap
@@ -108,6 +111,7 @@ prebooking: true
 ## Eureka! The National Children's Museum
 status: include
 websiteUrl: https://play.eureka.org.uk
+imageUrl: /images/activities/eureka.jpg
 description: Discover, play and learn across six amazing themed zones with over 400 hands-on exhibits built just for children — the UK's only fully interactive children's museum!
 category: museum
 costTier: premium
@@ -186,6 +190,7 @@ prebooking: false
 ## Harewood House
 status: include
 websiteUrl: https://harewood.org
+imageUrl: /images/activities/harewood-house.jpg
 description: Explore a magnificent stately home, roam adventure playgrounds, get close to exotic birds in the Bird Garden, and discover beautiful gardens and lakeside walks.
 category: heritage
 costTier: moderate
@@ -199,6 +204,7 @@ prebooking: false
 ## Hesketh Farm
 status: include
 websiteUrl: https://heskethfarmpark.co.uk
+imageUrl: /images/activities/hesketh-farm.jpg
 description: Feed and meet over a thousand animals on a real working Dales farm, ride pedal go-karts, bounce through the straw maze, and enjoy tractor rides near Bolton Abbey!
 category: farm
 costTier: moderate
@@ -303,6 +309,7 @@ prebooking: false
 ## Kirkstall Abbey
 status: include
 websiteUrl: https://museumsandgalleries.leeds.gov.uk/kirkstall-abbey-b51d
+imageUrl: /images/activities/kirkstall-abbey.jpg
 description: Run freely through the magnificent ruins of a 12th-century monastery just outside Leeds — one of England's best-preserved medieval abbeys, free to explore anytime!
 category: heritage
 costTier: free
@@ -316,6 +323,7 @@ prebooking: false
 ## Leeds Corn Exchange
 status: include
 websiteUrl: https://www.leedscornexchange.co.uk
+imageUrl: /images/activities/leeds-corn-exchange.jpg
 description: Marvel at a stunning Victorian domed building in the heart of Leeds, browse quirky independent shops, and enjoy food from creative local vendors — free to enter anytime!
 category: rainy-day
 costTier: free
@@ -329,6 +337,7 @@ prebooking: false
 ## Leeds Industrial Museum at Armley Mills
 status: include
 websiteUrl: https://museumsandgalleries.leeds.gov.uk/leeds-industrial-museum-trhc
+imageUrl: /images/activities/leeds-industrial-museum.jpg
 description: Discover how Leeds became a great industrial city — watch giant mill engines, explore locomotives, and find out how cloth was woven in a real Victorian woollen mill.
 category: museum
 costTier: cheap
@@ -342,6 +351,7 @@ prebooking: false
 ## Leeds Kirkgate Market
 status: include
 websiteUrl: https://markets.leeds.gov.uk/
+imageUrl: /images/activities/leeds-kirkgate-market.jpg
 description: Explore one of Europe's largest and most historic indoor markets! Wander past hundreds of colourful stalls selling food, clothes, toys, and tasty street snacks.
 category: rainy-day
 costTier: free
@@ -355,6 +365,7 @@ prebooking: false
 ## Lotherton Hall & Estate
 status: include
 websiteUrl: https://museumsandgalleries.leeds.gov.uk/lotherton-mbrx
+imageUrl: /images/activities/lotherton-hall.jpg
 description: Discover a gorgeous country estate with a real zoo! Meet meerkats and flamingos at Wildlife World, explore the grand hall, and roam acres of beautiful gardens.
 category: heritage
 costTier: cheap
@@ -394,6 +405,7 @@ prebooking: false
 ## National Coal Mining Museum
 status: include
 websiteUrl: https://www.ncm.org.uk/
+imageUrl: /images/activities/national-coal-mining-museum.jpg
 description: Go underground into a real coal mine for free! Ride the pit cage deep below the surface and discover the incredible history of Britain's coal industry — amazing and totally free!
 category: museum
 costTier: free
@@ -407,6 +419,7 @@ prebooking: false
 ## National Media Museum
 status: include
 websiteUrl: https://www.scienceandmediamuseum.org.uk/
+imageUrl: /images/activities/national-media-museum.jpg
 description: Explore eight floors packed with photography, TV, animation and video games! Watch films in the UK's first IMAX cinema and discover the science of light and colour — for free!
 category: museum
 costTier: free
@@ -498,6 +511,7 @@ prebooking: false
 ## RHS Garden Harlow Carr
 status: include
 websiteUrl: https://www.rhs.org.uk/gardens/harlow-carr
+imageUrl: /images/activities/rhs-harlow-carr.jpg
 description: Explore over 60 acres of stunning RHS gardens on the edge of Harrogate! Discover beautiful seasonal plants, splash in the stream garden, and visit the famous Betty's Tearoom!
 category: nature
 costTier: moderate
@@ -524,6 +538,7 @@ prebooking: false
 ## Rievaulx Abbey
 status: include
 websiteUrl: https://www.english-heritage.org.uk/visit/places/rievaulx-abbey/
+imageUrl: /images/activities/rievaulx-abbey.jpg
 description: Explore England's most majestic ruined abbey hidden in a stunning wooded valley! Wander through towering ancient arches and discover how medieval monks lived — breathtaking!
 category: heritage
 costTier: moderate
@@ -602,6 +617,7 @@ prebooking: true
 ## Stump Cross Caverns
 status: include
 websiteUrl: https://www.stumpcrosscaverns.co.uk/
+imageUrl: /images/activities/stump-cross-caverns.jpg
 description: Venture underground into a real ancient cave system! Marvel at incredible stalactites and stalagmites that took thousands of years to form deep beneath the Yorkshire Dales.
 category: nature
 costTier: moderate
@@ -615,6 +631,7 @@ prebooking: false
 ## Temple Newsam
 status: include
 websiteUrl: https://museumsandgalleries.leeds.gov.uk/temple-newsam-jg6y
+imageUrl: /images/activities/temple-newsam.jpg
 description: Explore a magnificent Tudor-Jacobean mansion set in 1,500 acres of parkland! Visit rare breed animals on the working farm, play in the Play Barn, and roam stunning grounds.
 category: heritage
 costTier: free
@@ -628,6 +645,7 @@ prebooking: false
 ## Thackray Medical Museum
 status: include
 websiteUrl: https://thackraymuseum.co.uk/
+imageUrl: /images/activities/thackray-medical-museum.jpg
 description: Discover the gross, incredible, and amazing story of medicine through the ages! Walk the streets of Victorian Leeds and explore how doctors and surgeons changed the world.
 category: museum
 costTier: moderate
@@ -680,6 +698,7 @@ prebooking: false
 ## Williams Den
 status: include
 websiteUrl: https://www.williamsden.co.uk
+imageUrl: /images/activities/williams-den.jpg
 description: Discover epic indoor and outdoor adventure play with zip wires, climbing towers, sand and water play, a giant treehouse, and wild woodland trails for all ages!
 category: adventure
 costTier: moderate
@@ -706,6 +725,7 @@ prebooking: true
 ## York Dungeon
 status: include
 websiteUrl: https://www.thedungeons.com/york/
+imageUrl: /images/activities/york-dungeon.jpg
 description: Brave York's darkest history with live actors, jaw-dropping shows, and thrilling tales of plague, Vikings, and gruesome legends — not for the faint-hearted!
 category: adventure
 costTier: premium
@@ -758,6 +778,7 @@ prebooking: true
 ## Yorkshire Lavender
 status: include
 websiteUrl: https://www.yorkshirelavender.com
+imageUrl: /images/activities/yorkshire-lavender.jpg
 description: Run through rows of beautiful purple lavender fields, explore lovely gardens, sniff amazing scents, and enjoy homemade treats at this gorgeous family farm near York!
 category: nature
 costTier: cheap
@@ -771,6 +792,7 @@ prebooking: false
 ## Yorkshire Museum
 status: include
 websiteUrl: https://www.yorkshiremuseum.org.uk
+imageUrl: /images/activities/yorkshire-museum.jpg
 description: Discover real Roman treasures, Viking jewels, and mighty dinosaur fossils inside York's stunning museum, surrounded by beautiful gardens to explore outside!
 category: museum
 costTier: cheap
@@ -784,6 +806,7 @@ prebooking: false
 ## Yorkshire Sculpture Park
 status: include
 websiteUrl: https://ysp.org.uk
+imageUrl: /images/activities/yorkshire-sculpture-park.jpg
 description: Wander 500 acres of parkland dotted with incredible giant sculptures, spot outdoor art among the trees, and explore indoor galleries — all in one amazing free adventure!
 category: nature
 costTier: free
@@ -797,6 +820,7 @@ prebooking: false
 ## Yorkshire Wildlife Park
 status: include
 websiteUrl: https://www.yorkshirewildlifepark.com
+imageUrl: /images/activities/yorkshire-wildlife-park.jpg
 description: Come face to face with polar bears, lions, giraffes, and hundreds more amazing animals on an exciting walk-through wildlife adventure near Doncaster!
 category: nature
 costTier: premium
@@ -823,6 +847,7 @@ prebooking: true
 ## Aysgarth Falls
 status: include
 websiteUrl: https://www.yorkshiredales.org.uk/places/aysgarth_falls_national_park_centre/
+imageUrl: /images/activities/aysgarth-falls.jpg
 description: Marvel at three spectacular waterfalls crashing over ancient limestone steps on the River Ure, with beautiful walks through the heart of the Yorkshire Dales!
 category: nature
 costTier: free
@@ -875,6 +900,7 @@ prebooking: true
 ## Magna Science Adventure Centre
 status: include
 websiteUrl: https://www.visitmagna.co.uk
+imageUrl: /images/activities/magna-science-centre.jpg
 description: Ignite massive fire tornadoes, control jets of water, and experiment with electricity and air at this jaw-dropping science adventure centre inside a former steelworks!
 category: museum
 costTier: premium
@@ -914,6 +940,7 @@ prebooking: false
 ## Scarborough Castle
 status: include
 websiteUrl: https://www.english-heritage.org.uk/visit/places/scarborough-castle/
+imageUrl: /images/activities/scarborough-castle.jpg
 description: Storm a real medieval castle perched on dramatic clifftops above the sea, explore over 3,000 years of history, and enjoy breathtaking views of Scarborough Bay!
 category: heritage
 costTier: cheap
@@ -927,6 +954,7 @@ prebooking: false
 ## Scarborough Sea Life Sanctuary
 status: include
 websiteUrl: https://www.visitsealife.com/scarborough/
+imageUrl: /images/activities/scarborough-sea-life.jpg
 description: Come nose to nose with sharks, rays, seahorses, rescued seals, and hundreds of amazing sea creatures at Scarborough's brilliant aquarium and seal sanctuary!
 category: museum
 costTier: premium
@@ -940,6 +968,7 @@ prebooking: false
 ## Shibden Hall
 status: include
 websiteUrl: https://museums.calderdale.gov.uk/visit/shibden-hall
+imageUrl: /images/activities/shibden-hall.jpg
 description: Explore a fascinating 600-year-old manor house, dress up in historic costumes, and roam the beautiful parkland that inspired TV's Gentleman Jack!
 category: heritage
 costTier: cheap
@@ -953,6 +982,7 @@ prebooking: true
 ## Skipton Woods
 status: include
 websiteUrl: https://www.woodlandtrust.org.uk/visiting-woods/woods/skipton-castle-woods/
+imageUrl: /images/activities/skipton-woods.jpg
 description: Wander through magical ancient woodland hidden behind Skipton Castle, spot kingfishers and woodpeckers, and explore secret paths along a beautiful beck!
 category: nature
 costTier: free
