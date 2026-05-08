@@ -8,6 +8,7 @@ interface EnrichBlock {
   name: string;
   status: "include" | "skip";
   websiteUrl?: string;
+  imageUrl?: string;
   description?: string;
   category?: string;
   costTier?: string;
@@ -36,6 +37,7 @@ function parseBlock(chunk: string): EnrichBlock | null {
     name,
     status: fields.status === "skip" ? "skip" : "include",
     websiteUrl: fields.websiteUrl || undefined,
+    imageUrl: fields.imageUrl || undefined,
     description: fields.description || undefined,
     category: fields.category || undefined,
     costTier: fields.costTier || undefined,
@@ -83,6 +85,7 @@ async function main() {
 
     const updateData: Record<string, unknown> = {};
     if (block.websiteUrl !== undefined) updateData.websiteUrl = block.websiteUrl;
+    if (block.imageUrl !== undefined) updateData.imageUrl = block.imageUrl;
     if (block.description !== undefined) updateData.description = block.description;
     if (block.category !== undefined) updateData.category = block.category;
     if (block.costTier !== undefined) updateData.costTier = block.costTier;
