@@ -95,6 +95,12 @@ async function main() {
     if (block.prebookingRequired !== undefined)
       updateData.prebookingRequired = block.prebookingRequired;
 
+    if (Object.keys(updateData).length === 0) {
+      console.log(`  SKIP (empty)  ${block.name}`);
+      skipped++;
+      continue;
+    }
+
     const result = await db
       .update(activities)
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
