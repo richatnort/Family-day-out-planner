@@ -18,8 +18,7 @@ ENV NODE_ENV=production
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/db ./db
-COPY --from=builder /app/tsconfig.json ./tsconfig.json
+COPY --from=builder /app/db/migrations ./db/migrations
 COPY package*.json ./
 COPY next.config.ts ./
 COPY drizzle.config.ts ./
