@@ -141,7 +141,13 @@ export default function BrowsePage() {
         <h1 className="font-[family-name:var(--font-heading)] text-2xl font-bold text-[var(--color-foreground)]">
           Days Out 🌞
         </h1>
-        <div className="mt-3 flex gap-2 items-center">
+        <div className="mt-3 flex flex-col gap-2">
+          <button
+            onClick={handleSurpriseMe}
+            className="w-full bg-[var(--color-accent)] text-white px-4 py-2 rounded-full min-h-[44px] text-sm font-semibold active:scale-95 transition-transform"
+          >
+            Surprise Me!
+          </button>
           <FilterChips
             activeWeather={activeWeather}
             activeSetting={activeSetting}
@@ -156,17 +162,11 @@ export default function BrowsePage() {
               )
             }
           />
-          <button
-            onClick={handleSurpriseMe}
-            className="ml-auto shrink-0 bg-[var(--color-accent)] text-white px-4 py-2 rounded-full min-h-[44px] text-sm font-semibold active:scale-95 transition-transform whitespace-nowrap"
-          >
-            Surprise Me!
-          </button>
         </div>
       </header>
 
       {/* Activity grid */}
-      <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div className="p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         {isLoading &&
           Array.from({ length: 6 }).map((_, i) => (
             <div
