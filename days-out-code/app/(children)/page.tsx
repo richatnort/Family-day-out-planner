@@ -39,6 +39,7 @@ export default function BrowsePage() {
   const [memberships, setMemberships] = useState<MembershipRow[]>([]);
   const [activeWeather, setActiveWeather] = useState<("sunny" | "rainy")[]>([]);
   const [activeSetting, setActiveSetting] = useState<("indoor" | "outdoor")[]>([]);
+  const [activeCostTier, setActiveCostTier] = useState<("free" | "cheap" | "moderate" | "premium")[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   // Fetch wishlist and memberships once on mount
@@ -71,6 +72,7 @@ export default function BrowsePage() {
       const params = new URLSearchParams();
       activeWeather.forEach((w) => params.append("weather", w));
       activeSetting.forEach((s) => params.append("setting", s));
+      activeCostTier.forEach((ct) => params.append("costTier", ct));
       const res = await fetch(`/api/activities?${params.toString()}`);
       if (res.ok) {
         const data: Activity[] = await res.json();
@@ -81,7 +83,7 @@ export default function BrowsePage() {
     } finally {
       setIsLoading(false);
     }
-  }, [activeWeather, activeSetting, showToast]);
+  }, [activeWeather, activeSetting, activeCostTier, showToast]);
 
   useEffect(() => {
     fetchActivities();
@@ -132,7 +134,7 @@ export default function BrowsePage() {
     router.push(`/${activity.id}`);
   }
 
-  const hasActiveFilters = activeWeather.length > 0 || activeSetting.length > 0;
+  const hasActiveFilters = activeWeather.length > 0 || activeSetting.length > 0 || activeCostTier.length > 0;
 
   return (
     <main className="min-h-screen bg-[var(--color-background)]">
@@ -151,6 +153,7 @@ export default function BrowsePage() {
           <FilterChips
             activeWeather={activeWeather}
             activeSetting={activeSetting}
+            activeCostTier={activeCostTier}
             onToggleWeather={(val) =>
               setActiveWeather((prev) =>
                 prev.includes(val) ? prev.filter((v) => v !== val) : [...prev, val]
@@ -158,6 +161,11 @@ export default function BrowsePage() {
             }
             onToggleSetting={(val) =>
               setActiveSetting((prev) =>
+                prev.includes(val) ? prev.filter((v) => v !== val) : [...prev, val]
+              )
+            }
+            onToggleCostTier={(val) =>
+              setActiveCostTier((prev) =>
                 prev.includes(val) ? prev.filter((v) => v !== val) : [...prev, val]
               )
             }
