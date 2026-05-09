@@ -14,8 +14,8 @@ export async function GET(request: NextRequest) {
   const sp = request.nextUrl.searchParams;
   const weatherParams = sp.getAll("weather");
   const settingParams = sp.getAll("setting");
+  const costTierParams = sp.getAll("costTier");
   const consideringOnly = sp.get("considering") === "true";
-  const planOnly = sp.get("plan") === "true";
   const allIncludingInactive = sp.get("all") === "true" && session.user?.role === "admin";
 
   const buildWeatherFilter = (params: string[]) => {
@@ -40,12 +40,20 @@ export async function GET(request: NextRequest) {
     return inArray(activities.setting, [...values] as ("indoor" | "outdoor" | "both")[]);
   };
 
+  const buildCostTierFilter = (params: string[]) => {
+    if (params.length === 0) return undefined;
+    const valid = ["free", "cheap", "moderate", "premium"] as const;
+    const values = params.filter((p): p is typeof valid[number] => valid.includes(p as typeof valid[number]));
+    if (values.length === 0) return undefined;
+    return inArray(activities.costTier, values);
+  };
+
   const conditions = [
     allIncludingInactive ? undefined : eq(activities.isActive, true),
     buildWeatherFilter(weatherParams),
     buildSettingFilter(settingParams),
+    buildCostTierFilter(costTierParams),
     consideringOnly ? eq(activities.isConsidering, true) : undefined,
-    planOnly ? eq(activities.isPlan, true) : undefined,
   ].filter(Boolean) as Parameters<typeof and>;
 
   const results = await db
