@@ -1,6 +1,8 @@
 import { auth } from "@/lib/auth";
 import { type NextRequest, type NextFetchEvent } from "next/server";
 
+type AuthMiddleware = (req: NextRequest, event: NextFetchEvent) => Promise<Response>;
+
 export async function proxy(request: NextRequest, event: NextFetchEvent) {
   console.log(
     JSON.stringify({
@@ -11,7 +13,7 @@ export async function proxy(request: NextRequest, event: NextFetchEvent) {
       path: request.nextUrl.pathname,
     })
   );
-  return auth(request, event);
+  return (auth as unknown as AuthMiddleware)(request, event);
 }
 
 export const config = {
