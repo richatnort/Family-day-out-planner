@@ -36,7 +36,7 @@ Direct server pushes diverge the server from the repo and mean future `git pull`
 ## Initiatives
 
 1. **Initiative 1 — MVP** (current): Browse, PIN auth, Adventure Passport, Family Vote, Add to Calendar, Wishlist
-2. **Initiative 2 — Admin Panel**: Activity CRUD, Membership management, This Week's Plan
+2. **Initiative 2 — Admin Panel**: Activity CRUD, Membership management, Vote shortlisting
 3. **Initiative 3 — Groq AI**: URL import with AI extraction, potential other Groq uses
 4. **Initiative 4 — Offline & PWA**: Service worker, near-me GPS mode
 
