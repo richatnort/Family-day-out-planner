@@ -2,13 +2,12 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Home, Stamp, ThumbsUp, CalendarDays } from 'lucide-react'
+import { Home, Stamp, ThumbsUp } from 'lucide-react'
 
 const tabs = [
   { href: '/', icon: Home, label: 'Explore' },
   { href: '/passport', icon: Stamp, label: 'Passport' },
   { href: '/vote', icon: ThumbsUp, label: 'Vote' },
-  { href: '/plan', icon: CalendarDays, label: 'Plan' },
 ] as const
 
 export default function NavBar() {
@@ -16,7 +15,7 @@ export default function NavBar() {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-[var(--color-border)] z-40 safe-area-inset-bottom">
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-3">
         {tabs.map(({ href, icon: Icon, label }) => {
           const isActive =
             href === '/'
