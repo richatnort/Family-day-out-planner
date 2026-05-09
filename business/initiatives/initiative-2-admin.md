@@ -14,11 +14,8 @@ Parent-facing admin area accessible via `/admin`. Separate password authenticati
 - Admin login (`/login`) with password auth
 - Activity CRUD (create, read, update, delete)
 - `is_considering` flag — mark activities for the Family Vote shortlist
-- `is_plan` flag — confirm activities for This Week's Plan
-- Mystery mode — hide activity name on the plan page
 - Membership management with expiry dates and alerts
 - Admin dashboard (counts, vote summary, expiry alerts)
-- This Week's Plan view for children (`/plan` — PIN-gated)
 
 **Out of scope:**
 - URL import via Groq (Initiative 3)
@@ -30,9 +27,7 @@ Parent-facing admin area accessible via `/admin`. Separate password authenticati
 
 ```sql
 ALTER TABLE activities
-  ADD COLUMN is_considering BOOLEAN NOT NULL DEFAULT false,
-  ADD COLUMN is_plan        BOOLEAN NOT NULL DEFAULT false,
-  ADD COLUMN is_mystery     BOOLEAN NOT NULL DEFAULT false;
+  ADD COLUMN is_considering BOOLEAN NOT NULL DEFAULT false;
 ```
 
 ---
@@ -149,24 +144,6 @@ And the activity disappears from the filtered vote view
 
 ---
 
-#### US-ADMIN-ACT-6: Confirm for This Week's Plan
-
-**Scenario: Add to plan**
-
-Given the admin confirms an activity for this week  
-When they toggle "In this week's plan"  
-Then `is_plan` is set to `true`  
-And the activity appears on children's `/plan` page
-
-**Scenario: Mystery activity**
-
-Given the admin checks "Mystery destination" on a plan activity  
-Then `is_mystery = true`  
-And on the children's `/plan` page, the activity shows a lock icon and "Mystery Adventure!" instead of its name  
-And the OG image is also hidden
-
----
-
 ### Membership Management
 
 #### US-ADMIN-MEM-1: Add Membership
@@ -226,32 +203,6 @@ Then they see:
   - Activity count by category (bar chart or count table)
   - This week's vote summary: top-voted activities among `is_considering = true` activities
   - Membership expiry alerts: any memberships expiring within 30 days
-
----
-
-### Children's Plan View
-
-#### US-PLAN-1: This Week's Plan
-
-**Scenario: Confirmed activities visible**
-
-Given one or more activities have `is_plan = true`  
-When the child visits `/plan`  
-Then those activities are listed in the plan  
-And each has an "Add to Calendar" button (same behaviour as US-DETAIL-5)
-
-**Scenario: Mystery activity hidden**
-
-Given an activity has `is_mystery = true` and `is_plan = true`  
-When shown on the plan page  
-Then the activity shows a lock icon and "Mystery Adventure!" instead of the name  
-And the OG image is not shown
-
-**Scenario: Empty plan**
-
-Given no activities have `is_plan = true`  
-When the child visits `/plan`  
-Then the page shows: "Nothing confirmed yet — check back soon!"
 
 ---
 
