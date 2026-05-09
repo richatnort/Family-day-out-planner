@@ -45,6 +45,7 @@ prebooking: true
 ## Cliffe Castle Museum
 status: include
 websiteUrl: https://bradfordmuseums.org/venue/cliffe-castle-museum/
+imageUrl: /images/activities/cliffe-castle-museum.jpg
 description: Explore a real Victorian millionaire's castle filled with sparkling rooms, nature collections, fossils, and beautiful stained glass — completely free to enter!
 category: museum
 costTier: free
@@ -58,6 +59,7 @@ prebooking: false
 ## Cow and Calf Rocks
 status: include
 websiteUrl: https://www.visitbradford.com/things-to-do/cow-and-calf-rocks-p1166841
+imageUrl: /images/activities/cow-and-calf-rocks.jpg
 description: Climb famous millstone grit boulders on the moor and enjoy spectacular views over Ilkley and Wharfedale — a brilliant free scramble for adventurous families!
 category: nature
 costTier: free
@@ -85,6 +87,7 @@ prebooking: false
 ## East Riddlesden Hall (NT)
 status: include
 websiteUrl: https://www.nationaltrust.org.uk/visit/yorkshire/east-riddlesden-hall
+imageUrl: /images/activities/east-riddlesden-hall.jpg
 description: Discover a 17th-century manor house with a famous Great Barn, a mud kitchen, trim trail play area, and cosy tearoom — history made fun for the whole family!
 category: heritage
 costTier: moderate
@@ -98,6 +101,7 @@ prebooking: false
 ## Emmerdale Studio Experience
 status: include
 websiteUrl: https://www.emmerdalestudioexperience.co.uk
+imageUrl: /images/activities/emmerdale-studio.jpg
 description: Step behind the scenes of a real TV soap, explore full-size set recreations, and find out how Emmerdale is made — with real props and costumes to discover!
 category: museum
 costTier: premium
@@ -138,6 +142,7 @@ prebooking: false
 ## Flamingo Land
 status: include
 websiteUrl: https://www.flamingoland.co.uk
+imageUrl: /images/activities/flamingo-land.jpg
 description: Ride thrilling roller coasters, visit an award-winning zoo with lions and giraffes, and enjoy a full theme park packed with rides for families — Yorkshire's ultimate big day out!
 category: adventure
 costTier: premium
@@ -151,6 +156,7 @@ prebooking: true
 ## Forbidden Corner
 status: include
 websiteUrl: https://www.theforbiddencorner.co.uk
+imageUrl: /images/activities/forbidden-corner.jpg
 description: Explore a secret labyrinth of tunnels, chambers, riddles and surprises hidden inside a Yorkshire Dales estate — part puzzle, part adventure, totally unlike anything else!
 category: adventure
 costTier: premium
@@ -164,6 +170,7 @@ prebooking: true
 ## Fountains Abbey & Studley Royal (NT)
 status: include
 websiteUrl: https://www.nationaltrust.org.uk/visit/yorkshire/fountains-abbey-and-studley-royal-water-garden
+imageUrl: /images/activities/fountains-abbey.jpg
 description: Explore dramatic ruins of a great medieval monastery inside a stunning UNESCO World Heritage water garden and deer park — breathtaking and totally free for NT members!
 category: heritage
 costTier: premium
@@ -177,6 +184,7 @@ prebooking: false
 ## Golden Acre Park
 status: include
 websiteUrl: https://www.leeds.gov.uk/parks-and-countryside/major-parks/golden-acre-park
+imageUrl: /images/activities/golden-acre-park.jpg
 description: Run free through beautiful gardens, spot birds and wildlife around the lake, and enjoy wide open green spaces just a few miles from Leeds city centre — totally free!
 category: nature
 costTier: free
@@ -218,6 +226,7 @@ prebooking: false
 ## Hornsea Freeport
 status: include
 websiteUrl: https://hornseavillage.com
+imageUrl: /images/activities/hornsea-freeport.jpg
 description: Visit Bugtopia tropical zoo with free-flying butterflies and reptiles, splash in Beach Cove soft play, and browse independent shops at this fun East Yorkshire village.
 category: rainy-day
 costTier: cheap
@@ -231,6 +240,7 @@ prebooking: false
 ## How Stean Gorge
 status: include
 websiteUrl: https://www.howstean.co.uk
+imageUrl: /images/activities/how-stean-gorge.jpg
 description: Walk through a dramatic limestone gorge, crawl through Tom Taylor's Cave, and splash along natural pathways carved by water over thousands of years in the Yorkshire Dales!
 category: nature
 costTier: cheap
@@ -257,6 +267,7 @@ prebooking: true
 ## Ilkley Lido
 status: include
 websiteUrl: https://ilkleypoolandlido.co.uk
+imageUrl: /images/activities/ilkley-lido.jpg
 description: Swim in a beautiful outdoor lido surrounded by the Yorkshire moors — a classic British summer experience with an outdoor pool open during the warmer months!
 category: water
 costTier: cheap
@@ -270,6 +281,7 @@ prebooking: true
 ## Jedidiah's Party at Stockeld Park
 status: include
 websiteUrl: https://stockeldpark.co.uk
+imageUrl: /images/activities/jedidiahs-party-stockeld-park.jpg
 description: Join Jedidiah the Scarecrow for magical outdoor adventures, trails, and surprises across Stockeld Park's beautiful estate — a uniquely enchanting Yorkshire experience!
 category: adventure
 costTier: moderate
@@ -283,6 +295,7 @@ prebooking: true
 ## Knaresborough Castle & Museum
 status: include
 websiteUrl: https://www.northyorks.gov.uk/leisure-tourism-and-culture/museums-and-galleries/museums-harrogate-area/knaresborough-castle-and-museum
+imageUrl: /images/activities/knaresborough-castle.jpg
 description: Climb a real medieval castle keep, explore the dungeon, and discover local history — with brilliant views over the River Nidd and gorge below!
 category: heritage
 costTier: cheap
@@ -296,6 +309,7 @@ prebooking: false
 ## Knaresborough Paddling Pool
 status: include
 websiteUrl: https://visitnorthyorkshire.com/index/bebra-gardens-knaresborough
+imageUrl: /images/activities/knaresborough-paddling-pool.jpg
 description: Splash and play in a free outdoor paddling pool in beautiful Bebra Gardens beside Knaresborough Castle — open through the summer holidays each year!
 category: water
 costTier: free
@@ -379,6 +393,7 @@ prebooking: false
 ## Middleton Railway
 status: include
 websiteUrl: https://middletonrailway.org.uk/
+imageUrl: /images/activities/middleton-railway.jpg
 description: Ride the world's oldest working railway! Climb aboard a real steam or diesel train and chug through Leeds on a heritage line that has been running since 1758.
 category: heritage
 costTier: cheap
@@ -392,6 +407,7 @@ prebooking: false
 ## Mother Shiptons Cave
 status: include
 websiteUrl: https://www.mothershipton.co.uk/
+imageUrl: /images/activities/mother-shiptons-cave.jpg
 description: Visit England's oldest tourist attraction and see the magical Petrifying Well that turns objects to stone! Explore riverside walks and discover the legend of the famous prophetess.
 category: heritage
 costTier: moderate
@@ -433,6 +449,7 @@ prebooking: false
 ## National Railway Museum
 status: include
 websiteUrl: https://www.railwaymuseum.org.uk/
+imageUrl: /images/activities/national-railway-museum.jpg
 description: Discover the world's greatest railway museum for free! Stand next to record-breaking Mallard, climb aboard iconic locomotives, and explore enormous engine halls full of history.
 category: museum
 costTier: free
@@ -459,6 +476,7 @@ prebooking: true
 ## Nostell (NT)
 status: include
 websiteUrl: https://www.nationaltrust.org.uk/visit/yorkshire/nostell
+imageUrl: /images/activities/nostell.jpg
 description: Explore one of England's grandest stately homes surrounded by 300 acres of stunning parkland! Spot rare Chippendale furniture, play in the adventure area, and cycle the grounds.
 category: heritage
 costTier: moderate
@@ -472,6 +490,7 @@ prebooking: false
 ## Nunnington Hall (NT)
 status: include
 websiteUrl: https://www.nationaltrust.org.uk/visit/yorkshire/nunnington-hall
+imageUrl: /images/activities/nunnington-hall.jpg
 description: Discover a beautiful Yorkshire manor house nestled by a winding river! Wander five acres of lovely gardens, explore the cosy historic rooms, and enjoy a treat in the tearoom.
 category: heritage
 costTier: moderate
@@ -485,6 +504,7 @@ prebooking: false
 ## Parcevall Hall Gardens
 status: include
 websiteUrl: https://www.parcevallhallgardens.co.uk/
+imageUrl: /images/activities/parcevall-hall-gardens.jpg
 description: Wander through 24 acres of magical gardens rising high into the Yorkshire Dales! Find hidden woodland paths, colourful terraces, and amazing views — then stop for cake in the tearoom.
 category: nature
 costTier: cheap
@@ -498,6 +518,7 @@ prebooking: false
 ## Pirate Adventure Crazy Golf (Harrogate)
 status: include
 websiteUrl: https://www.piratesadventuregolf.com/
+imageUrl: /images/activities/pirate-adventure-golf.jpg
 description: Play a swashbuckling round of pirate-themed crazy golf! Putt past cannons, treasure chests, and shipwrecks on a fun indoor adventure course the whole crew will love!
 category: rainy-day
 costTier: cheap
@@ -525,6 +546,7 @@ prebooking: false
 ## Ripley Castle & Gardens
 status: include
 websiteUrl: https://www.ripleycastle.co.uk/
+imageUrl: /images/activities/ripley-castle.jpg
 description: Step inside a real 700-year-old castle and explore beautiful walled gardens! Discover centuries of history, roam the estate grounds, and spot deer in the parkland.
 category: heritage
 costTier: moderate
@@ -552,6 +574,7 @@ prebooking: false
 ## Roundhay Park
 status: include
 websiteUrl: https://www.leeds.gov.uk/parks-and-countryside/major-parks/roundhay-park
+imageUrl: /images/activities/roundhay-park.jpg
 description: Run wild in one of Europe's biggest city parks! Splash by the lakes, ride the land train, explore gorgeous gardens, and enjoy huge open spaces perfect for picnics and play.
 category: nature
 costTier: free
@@ -565,6 +588,7 @@ prebooking: false
 ## Royal Armouries Museum
 status: include
 websiteUrl: https://royalarmouries.org/visit-us/royal-armouries-museum-leeds/
+imageUrl: /images/activities/royal-armouries.jpg
 description: Discover thousands of amazing weapons and armour from throughout history — for free! Admire Henry VIII's armour, samurai swords, and even a giant elephant armour.
 category: museum
 costTier: free
@@ -578,6 +602,7 @@ prebooking: false
 ## Skipton Castle
 status: include
 websiteUrl: https://www.skiptoncastle.co.uk/
+imageUrl: /images/activities/skipton-castle.jpg
 description: Explore one of England's best-preserved medieval castles! Climb ancient towers, walk through six impressive courtyards, and discover 900 years of history in the gateway to the Dales.
 category: heritage
 costTier: cheap
@@ -604,6 +629,7 @@ prebooking: true
 ## Stockeld Park
 status: include
 websiteUrl: https://stockeldpark.co.uk/
+imageUrl: /images/activities/stockeld-park.jpg
 description: Have the ultimate outdoor adventure at Yorkshire's best family park! Tackle themed playgrounds, get lost in a giant yew maze, and explore magical countryside near Harrogate!
 category: adventure
 costTier: premium
@@ -659,6 +685,7 @@ prebooking: false
 ## The Deep
 status: include
 websiteUrl: https://www.thedeep.co.uk/
+imageUrl: /images/activities/the-deep.jpg
 description: Dive into one of the world's most spectacular aquariums! Come face to face with sharks, turtles, stingrays, and penguins as you journey through millions of years of ocean history.
 category: museum
 costTier: premium
@@ -672,6 +699,7 @@ prebooking: false
 ## Tropical World
 status: include
 websiteUrl: https://tropicalworld.leeds.gov.uk/
+imageUrl: /images/activities/tropical-world.jpg
 description: Step into a steamy tropical paradise bursting with exotic animals and plants! Spot crocodiles, butterflies, meerkats, and monkeys across themed houses from rainforest to desert.
 category: museum
 costTier: cheap
@@ -685,6 +713,7 @@ prebooking: false
 ## Wentworth Castle Gardens
 status: include
 websiteUrl: https://www.wentworthcastle.org
+imageUrl: /images/activities/wentworth-castle-gardens.jpg
 description: Explore stunning historic gardens with a castle folly, sensory trails, orienteering, and an adventure play area set in beautiful South Yorkshire parkland.
 category: nature
 costTier: cheap
@@ -712,6 +741,7 @@ prebooking: true
 ## York Chocolate Story
 status: include
 websiteUrl: https://www.yorkschocolatestory.com
+imageUrl: /images/activities/york-chocolate-story.jpg
 description: Discover 4,000 years of chocolate history on a guided tour, make your very own chocolate treats, and find out how York's famous sweet story began!
 category: museum
 costTier: moderate
@@ -739,6 +769,7 @@ prebooking: true
 ## York Maze
 status: include
 websiteUrl: https://www.yorkmaze.com
+imageUrl: /images/activities/york-maze.jpg
 description: Get lost in one of Europe's biggest mazes and enjoy over 20 rides, shows, and attractions on a giant farm site packed with outdoor family fun — an epic summer day out!
 category: adventure
 costTier: premium
@@ -752,6 +783,7 @@ prebooking: true
 ## York Minster (free entry to grounds)
 status: include
 websiteUrl: https://yorkminster.org
+imageUrl: /images/activities/york-minster.jpg
 description: Gaze up at one of Europe's greatest Gothic cathedrals, explore the ancient grounds and gardens, and soak up a thousand years of history in the heart of York — free!
 category: heritage
 costTier: free
@@ -765,6 +797,7 @@ prebooking: false
 ## Yorkshire Dales Falconry Centre
 status: include
 websiteUrl: https://www.settlefalconry.co.uk
+imageUrl: /images/activities/yorkshire-dales-falconry.jpg
 description: Get up close with magnificent birds of prey, wear the falconer's glove, and meet owls, hawks, and eagles in the stunning Yorkshire Dales countryside!
 category: nature
 costTier: moderate
@@ -834,6 +867,7 @@ prebooking: false
 ## Jorvik Viking Centre
 status: include
 websiteUrl: https://www.jorvikvikingcentre.co.uk
+imageUrl: /images/activities/jorvik-viking-centre.jpg
 description: Time-travel back to Viking York in AD 960, ride through a reconstructed Viking city, and meet real archaeological finds from one of Britain's greatest excavations!
 category: museum
 costTier: moderate
@@ -861,6 +895,7 @@ prebooking: false
 ## Bolton Abbey
 status: include
 websiteUrl: https://boltonabbey.com
+imageUrl: /images/activities/bolton-abbey.jpg
 description: Explore romantic medieval abbey ruins, step across the famous Stepping Stones over the River Wharfe, and roam 30,000 acres of stunning Yorkshire Dales countryside!
 category: heritage
 costTier: moderate
@@ -874,6 +909,7 @@ prebooking: false
 ## Filey Beach
 status: include
 websiteUrl: https://visitnorthyorkshire.com/index/filey-beach
+imageUrl: /images/activities/filey-beach.jpg
 description: Race across five miles of golden sand, splash in the sea, build epic sandcastles, and enjoy traditional seaside fun at one of Yorkshire's most beautiful beaches!
 category: water
 costTier: free
@@ -887,6 +923,7 @@ prebooking: false
 ## Harrogate Turkish Baths
 status: include
 websiteUrl: https://www.turkishbathsharrogate.co.uk
+imageUrl: /images/activities/harrogate-turkish-baths.jpg
 description: Step inside a breathtaking Victorian Moorish spa and admire the stunning tilework on a guided architectural tour of one of Britain's most beautiful historic buildings!
 category: rainy-day
 costTier: moderate
@@ -914,6 +951,7 @@ prebooking: false
 ## Otley Chevin Forest Park
 status: include
 websiteUrl: https://www.chevinforest.co.uk
+imageUrl: /images/activities/otley-chevin.jpg
 description: Roam 700 acres of ancient woodland, scramble over rocky crags, spot wildlife, and discover hidden ponds on exciting trails above the Wharfe Valley near Otley!
 category: nature
 costTier: free
@@ -927,6 +965,7 @@ prebooking: false
 ## Piece Hall Halifax
 status: include
 websiteUrl: https://www.thepiecehall.co.uk
+imageUrl: /images/activities/piece-hall-halifax.jpg
 description: Explore a stunning 18th-century cloth hall turned vibrant cultural quarter — with independent shops, cafes, open-air events, and a beautiful colonnaded courtyard!
 category: heritage
 costTier: free
