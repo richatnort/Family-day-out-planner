@@ -3,8 +3,10 @@
 interface FilterChipsProps {
   activeWeather: ('sunny' | 'rainy')[]
   activeSetting: ('indoor' | 'outdoor')[]
+  activeCostTier: ('free' | 'cheap' | 'moderate' | 'premium')[]
   onToggleWeather: (val: 'sunny' | 'rainy') => void
   onToggleSetting: (val: 'indoor' | 'outdoor') => void
+  onToggleCostTier: (val: 'free' | 'cheap' | 'moderate' | 'premium') => void
 }
 
 const chipBase =
@@ -17,8 +19,10 @@ const inactiveChip =
 export default function FilterChips({
   activeWeather,
   activeSetting,
+  activeCostTier,
   onToggleWeather,
   onToggleSetting,
+  onToggleCostTier,
 }: FilterChipsProps) {
   const weatherChips: { val: 'sunny' | 'rainy'; label: string }[] = [
     { val: 'sunny', label: '☀️ Sunny' },
@@ -28,6 +32,13 @@ export default function FilterChips({
   const settingChips: { val: 'indoor' | 'outdoor'; label: string }[] = [
     { val: 'indoor', label: '🏠 Indoor' },
     { val: 'outdoor', label: '🌳 Outdoor' },
+  ]
+
+  const costTierChips: { val: 'free' | 'cheap' | 'moderate' | 'premium'; label: string }[] = [
+    { val: 'free',     label: '🆓 Free' },
+    { val: 'cheap',    label: '💚 Cheap' },
+    { val: 'moderate', label: '🟡 Moderate' },
+    { val: 'premium',  label: '💎 Premium' },
   ]
 
   return (
@@ -48,6 +59,16 @@ export default function FilterChips({
           type="button"
           onClick={() => onToggleSetting(val)}
           className={`${chipBase} ${activeSetting.includes(val) ? activeChip : inactiveChip}`}
+        >
+          {label}
+        </button>
+      ))}
+      {costTierChips.map(({ val, label }) => (
+        <button
+          key={val}
+          type="button"
+          onClick={() => onToggleCostTier(val)}
+          className={`${chipBase} ${activeCostTier.includes(val) ? activeChip : inactiveChip}`}
         >
           {label}
         </button>
