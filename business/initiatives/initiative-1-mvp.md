@@ -13,7 +13,7 @@ Everything a child can do with the 70+ seeded activities. No parent admin panel.
 
 **In scope:**
 - PIN authentication
-- Activity browsing (alphabetical, filterable)
+- Activity browsing (alphabetical, filterable by weather, setting, and cost tier)
 - Activity detail (OG image, map, cost badge, voting, Add to Calendar, mark as visited)
 - Wishlist (heart on cards)
 - Adventure Passport (stamps grid, progress bar)
@@ -74,10 +74,16 @@ These resolve conflicts and gaps identified by the 5-agent board.
 - 🌧 Rainy → `weather IN ('rainy-friendly', 'both')`
 - 🏠 Indoor → `setting IN ('indoor', 'both')`
 - 🌳 Outdoor → `setting IN ('outdoor', 'both')`
+- 🆓 Free → `cost_tier = 'free'`
+- 💚 Cheap → `cost_tier = 'cheap'`
+- 🟡 Moderate → `cost_tier = 'moderate'`
+- 💎 Premium → `cost_tier = 'premium'`
 
 **Multi-chip logic:** AND across different dimensions, OR within the same dimension.  
 Example: Sunny + Indoor → `(weather IN ('sunny','both')) AND (setting IN ('indoor','both'))`  
-Example: Sunny + Rainy → `weather IN ('sunny','rainy-friendly','both')` (effectively all weather values)
+Example: Sunny + Rainy → `weather IN ('sunny','rainy-friendly','both')` (effectively all weather values)  
+Example: Free + Cheap → `cost_tier IN ('free','cheap')` (OR within price dimension)  
+Example: Free + Indoor + Rainy → `cost_tier='free' AND setting IN ('indoor','both') AND weather IN ('rainy-friendly','both')` (AND across all three dimensions)
 
 ---
 
@@ -105,7 +111,7 @@ Drizzle schema definitions in `db/schema.ts` must reflect both of these.
 |--------|------|------|-------|
 | GET | `/api/health` | none | |
 | POST | `/api/auth/[...nextauth]` | — | next-auth handlers |
-| GET | `/api/activities` | pin | Query params: `weather`, `setting` (multi-value) |
+| GET | `/api/activities` | pin | Query params: `weather`, `setting`, `costTier` (all multi-value) |
 | GET | `/api/activities/:id` | pin | |
 | GET | `/api/activities/:id/calendar.ics` | pin | Query: `date=YYYY-MM-DD` (required), `time=HH:MM` (optional); Zod ISO 8601 validation |
 | GET | `/api/votes` | pin | Query: `activityId` (optional; omit to return all) |
@@ -261,6 +267,57 @@ Given active chips produce no matching activities
 When the filtered list is empty  
 Then the empty state reads: "No adventures match these filters — try removing one!"  
 And the active chips remain visible and tappable
+
+---
+
+#### US-BROWSE-2b: Filter by Cost Tier
+
+**Scenario: Single price chip**
+
+Given the child is on the browse screen  
+When they tap "🆓 Free"  
+Then only activities where `cost_tier = 'free'` are shown  
+And the Free chip is visually highlighted  
+And all other price chips remain unselected
+
+---
+
+**Scenario: Multiple price chips (OR logic within dimension)**
+
+Given the child has activated "🆓 Free"  
+When they also tap "💚 Cheap"  
+Then activities where `cost_tier IN ('free','cheap')` are shown  
+And both Free and Cheap chips are highlighted
+
+---
+
+**Scenario: Price combined with weather or setting (AND logic across dimensions)**
+
+Given the child has activated "🆓 Free"  
+When they also tap "🌧 Rainy"  
+Then only activities where `cost_tier = 'free' AND weather IN ('rainy-friendly','both')` are shown
+
+Given the child has activated "💎 Premium"  
+When they also tap "🏠 Indoor"  
+Then only activities where `cost_tier = 'premium' AND setting IN ('indoor','both')` are shown
+
+---
+
+**Scenario: Deactivate last active price chip**
+
+Given exactly one price chip is active  
+When the child taps it  
+Then the price filter is cleared  
+And the no-price-filter result set is restored
+
+---
+
+**Scenario: Filtered list is empty**
+
+Given active price and/or other chips produce no matching activities  
+When the filtered list is empty  
+Then the empty state reads: "No adventures match these filters — try removing one!"  
+And all active chips remain visible and tappable
 
 ---
 
@@ -768,6 +825,11 @@ And the health endpoint itself does not crash or return 5xx
 7. Tap "☀️ Sunny" → filtered list; chip highlighted
 8. Tap "🏠 Indoor" while Sunny active → AND filter; both chips highlighted
 9. Deactivate one chip → filter updates; deactivate all → full list restored
+9a. Tap "🆓 Free" → only free activities; chip highlighted
+9b. Tap "💚 Cheap" while Free active → both tiers shown (OR logic within price)
+9c. Tap "🆓 Free" + "🌧 Rainy" → free AND rainy-friendly activities (AND cross-dimension)
+9d. Tap "💎 Premium" + "🏠 Indoor" → premium AND indoor activities (AND cross-dimension)
+9e. Tap "🆓 Free" + "☀️ Sunny" + "🏠 Indoor" → all three dimensions AND'd correctly
 10. Tap "Surprise Me!" → random activity detail opens; works within filtered set
 11. Tap Heart on card → fills amber; hard refresh → still filled; tap again → unfilled
 12. Tap any activity card → detail: OG image/gradient placeholder, cost badge, tags
