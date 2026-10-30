@@ -42,6 +42,41 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         return { id: "family", role: "pin" };
       },
     }),
+    Credentials({
+      id: "admin",
+      name: "Admin",
+      credentials: {
+        password: { label: "Password", type: "password" },
+      },
+      async authorize(credentials, request) {
+        const ip =
+          request?.headers?.get("x-forwarded-for")?.split(",")[0].trim() ??
+          request?.headers?.get("x-real-ip") ??
+          "unknown";
+
+        const { allowed } = checkRateLimit(`admin:${ip}`);
+        if (!allowed) {
+          logger.warn({ ip }, "Admin login rate limit exceeded");
+          throw new Error("429: Too many attempts — try again in a minute");
+        }
+
+        const parsed = z
+          .object({ password: z.string().min(1) })
+          .safeParse(credentials);
+        if (!parsed.success) return null;
+
+        const adminHash = process.env.ADMIN_PASSWORD_HASH;
+        if (!adminHash) {
+          logger.error("ADMIN_PASSWORD_HASH env var not set");
+          return null;
+        }
+
+        const valid = await bcrypt.compare(parsed.data.password, adminHash);
+        if (!valid) return null;
+
+        return { id: "admin", role: "admin" };
+      },
+    }),
   ],
   pages: {
     signIn: "/pin",

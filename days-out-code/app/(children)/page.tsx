@@ -39,6 +39,7 @@ export default function BrowsePage() {
   const [memberships, setMemberships] = useState<MembershipRow[]>([]);
   const [activeWeather, setActiveWeather] = useState<("sunny" | "rainy")[]>([]);
   const [activeSetting, setActiveSetting] = useState<("indoor" | "outdoor")[]>([]);
+  const [activeCostTier, setActiveCostTier] = useState<("free" | "cheap" | "moderate" | "premium")[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   // Fetch wishlist and memberships once on mount
@@ -71,6 +72,7 @@ export default function BrowsePage() {
       const params = new URLSearchParams();
       activeWeather.forEach((w) => params.append("weather", w));
       activeSetting.forEach((s) => params.append("setting", s));
+      activeCostTier.forEach((ct) => params.append("costTier", ct));
       const res = await fetch(`/api/activities?${params.toString()}`);
       if (res.ok) {
         const data: Activity[] = await res.json();
@@ -81,7 +83,7 @@ export default function BrowsePage() {
     } finally {
       setIsLoading(false);
     }
-  }, [activeWeather, activeSetting, showToast]);
+  }, [activeWeather, activeSetting, activeCostTier, showToast]);
 
   useEffect(() => {
     fetchActivities();
@@ -132,7 +134,7 @@ export default function BrowsePage() {
     router.push(`/${activity.id}`);
   }
 
-  const hasActiveFilters = activeWeather.length > 0 || activeSetting.length > 0;
+  const hasActiveFilters = activeWeather.length > 0 || activeSetting.length > 0 || activeCostTier.length > 0;
 
   return (
     <main className="min-h-screen bg-[var(--color-background)]">
@@ -141,10 +143,17 @@ export default function BrowsePage() {
         <h1 className="font-[family-name:var(--font-heading)] text-2xl font-bold text-[var(--color-foreground)]">
           Days Out 🌞
         </h1>
-        <div className="mt-3 flex gap-2 items-center">
+        <div className="mt-3 flex flex-col gap-2">
+          <button
+            onClick={handleSurpriseMe}
+            className="w-full bg-[var(--color-accent)] text-white px-4 py-2 rounded-full min-h-[44px] text-sm font-semibold active:scale-95 transition-transform"
+          >
+            Surprise Me!
+          </button>
           <FilterChips
             activeWeather={activeWeather}
             activeSetting={activeSetting}
+            activeCostTier={activeCostTier}
             onToggleWeather={(val) =>
               setActiveWeather((prev) =>
                 prev.includes(val) ? prev.filter((v) => v !== val) : [...prev, val]
@@ -155,18 +164,17 @@ export default function BrowsePage() {
                 prev.includes(val) ? prev.filter((v) => v !== val) : [...prev, val]
               )
             }
+            onToggleCostTier={(val) =>
+              setActiveCostTier((prev) =>
+                prev.includes(val) ? prev.filter((v) => v !== val) : [...prev, val]
+              )
+            }
           />
-          <button
-            onClick={handleSurpriseMe}
-            className="ml-auto shrink-0 bg-[var(--color-accent)] text-white px-4 py-2 rounded-full min-h-[44px] text-sm font-semibold active:scale-95 transition-transform whitespace-nowrap"
-          >
-            Surprise Me!
-          </button>
         </div>
       </header>
 
       {/* Activity grid */}
-      <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div className="p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         {isLoading &&
           Array.from({ length: 6 }).map((_, i) => (
             <div

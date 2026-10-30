@@ -49,8 +49,8 @@ export async function GET(
     name: activity.name,
     date,
     time,
-    websiteUrl: activity.websiteUrl,
-    locationName: activity.locationName,
+    websiteUrl: activity.websiteUrl ?? undefined,
+    locationName: activity.locationName ?? undefined,
   });
 
   const slug = activity.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");

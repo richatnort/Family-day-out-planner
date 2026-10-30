@@ -13,5 +13,6 @@ export async function GET() {
     dbStatus = "error";
   }
 
-  return NextResponse.json({ status: "ok", db: dbStatus });
+  const httpStatus = dbStatus === "ok" ? 200 : 503;
+  return NextResponse.json({ status: "ok", db: dbStatus }, { status: httpStatus });
 }

@@ -45,6 +45,7 @@ export const activities = pgTable("activities", {
   ageMax: integer("age_max"),
   prebookingRequired: boolean("prebooking_required").default(false),
   isActive: boolean("is_active").default(true).notNull(),
+  isConsidering: boolean("is_considering").default(false).notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 

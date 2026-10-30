@@ -85,17 +85,15 @@ curl https://familyday.athafamily.com/api/health
 
 ---
 
-## TypeScript Fix Plan (TODO — next session)
+## TypeScript Fix — DONE ✅
 
-The `typescript-expert` skill is installed at `~/.agents/skills/typescript-expert.md`.
+All errors fixed and `ignoreBuildErrors: true` removed from `next.config.ts`.
+`npx tsc --noEmit` exits 0. `npm run build` exits 0.
 
-To get the full error list:
-```bash
-cd /Users/richardatha/Documents/Projects/days-out-summer/days-out-code
-npx tsc --noEmit 2>&1
-```
-
-Then use the skill to fix all errors and remove `ignoreBuildErrors: true` from `next.config.ts`.
+Errors that were fixed:
+- `app/api/activities/route.ts` — `inArray` casts for `weather`/`setting` enum columns: `[string, ...string[]]` → typed enum arrays
+- `app/api/activities/[id]/calendar.ics/route.ts` — `websiteUrl`/`locationName` null→undefined: added `?? undefined`
+- `app/pin/page.tsx` — `useSearchParams()` without Suspense boundary: split into `PinPage`/`PinPageInner` with `<Suspense>` wrapper
 
 ---
 

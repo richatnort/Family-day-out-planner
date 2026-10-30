@@ -52,7 +52,7 @@ export default function VotePage() {
       setIsLoading(true);
       try {
         const [activitiesRes, votesRes] = await Promise.all([
-          fetch("/api/activities"),
+          fetch("/api/activities?considering=true"),
           fetch("/api/votes"),
         ]);
 
@@ -121,10 +121,10 @@ export default function VotePage() {
     <>
       <main className="min-h-screen p-4 pt-6 bg-[var(--color-background)]">
         <h1 className="font-[family-name:var(--font-heading)] text-2xl font-bold text-[var(--color-foreground)]">
-          Family Vote 🗳️
+          Vote for this week&apos;s adventures! 🗳️
         </h1>
         <p className="text-sm text-[var(--color-foreground)]/50 mt-1">
-          What shall we do next?
+          What shall we do?
         </p>
 
         {isLoading && (
@@ -157,7 +157,7 @@ export default function VotePage() {
               <path d="M9 9h6M9 12h6M9 15h4" />
             </svg>
             <p className="text-[var(--color-foreground)]/50 text-sm">
-              No adventures to vote on yet!
+              Nothing shortlisted yet — check back soon!
             </p>
           </div>
         )}

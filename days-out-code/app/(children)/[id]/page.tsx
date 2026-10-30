@@ -216,7 +216,7 @@ export default function ActivityDetailPage({
   return (
     <main className="min-h-screen bg-[var(--color-background)] pb-24">
       {/* Hero image */}
-      <div className="relative w-full aspect-video bg-gradient-to-br from-[var(--color-primary)]/20 to-[var(--color-secondary)]/20 overflow-hidden">
+      <div className="relative w-full h-48 md:h-64 bg-gradient-to-br from-[var(--color-primary)]/20 to-[var(--color-secondary)]/20 overflow-hidden">
         {activity.imageUrl ? (
           <img
             src={activity.imageUrl}
